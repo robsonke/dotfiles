@@ -18,9 +18,10 @@ This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
 ## update
-
-
-
+```sh
+cd ~/.dotfiles
+sh update.sh
+```
 
 ## thanks
 

@@ -31,8 +31,8 @@ TODO
 aliases.zsh
 more vim settings
 git/*
-
-
+https://github.com/eduardolundgren/dotfiles/tree/master/templates
+env
 
 
 # KNOWN MISSING PARTS

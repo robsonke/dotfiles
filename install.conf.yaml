@@ -1,13 +1,12 @@
 - clean: ['~']
 
 - link:
-    ~/.hushlogin: 'hushlogin'
-    ~/.vim: 'vim'
-    ~/.vimrc: vimrc
-    ~/.zshrc: zshrc
-    ~/.oh-my-zsh: oh-my-zsh
-    ~/.mackup.cfg: mackup.cfg
-    ~/.iterm2_shell_integration.zsh: iterm2_shell_integration.zsh
+    ~/.hushlogin: osx/hushlogin
+    ~/.vimrc: vim/vimrc
+    ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh: zsh/oh-my-zsh
+    ~/.mackup.cfg: osx/mackup.cfg
+    ~/.iterm2_shell_integration.zsh: zsh/iterm2_shell_integration.zsh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
