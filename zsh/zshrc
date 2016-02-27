@@ -68,6 +68,13 @@ for file in ~/.{aliases,functions}; do
 done
 unset file
 
+# and maybe load some overrides from the custom folder
+for file in ~/.dotfiles/custom/*; do
+do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment

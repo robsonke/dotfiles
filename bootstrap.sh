@@ -8,7 +8,13 @@ brew install brew-cask
 brew tap caskroom/versions
 
 # install all required brew packages
-brew bundle
+brew update
+./brew.sh
+brew cleanup
+
+# create some default vim folders
+mkdir -p ~/.vim/swaps
+mkdir -p ~/.vim/backups
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

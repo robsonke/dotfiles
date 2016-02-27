@@ -10,7 +10,8 @@ brew update
 brew upgrade
 
 # install all from bundle, to avoid overriding missing packages below
-brew bundle
+./brew.sh
+brew cleanup
 
 # Update npm & packages
 npm install npm -g
@@ -20,8 +21,8 @@ npm update -g
 sudo gem update —system
 sudo gem update
 
-# and update my Brewfile with latest list
-brew leaves | sed 's/^/install /' > Brewfile
+# and update my brew install file with latest list
+brew leaves | sed 's/^/brew install /' > brew.sh
 
 # add, commit and push everything
 git ca
