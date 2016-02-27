@@ -1,0 +1,63 @@
+# ------------------------------------------------------------------------------------
+# Docker alias and function
+#   put in a separate file as these are pretty specific to docker and docker-machine
+# Disclaimer: this is gathered and adapted from several other people's aliases
+# ------------------------------------------------------------------------------------
+
+
+# Short for docker-machine
+docmac () {
+  docker-machine $@
+}
+# Switch docker pointer to another host (dmenv my_remote_host)
+docmacenv () {
+  eval "$(docker-machine env $1)"
+}
+# Short for docker
+doc () {
+  docker $@
+}
+# to be used for starting docker dev profile
+# commented as we don't want to do this while loading zsh
+#docmacenv dev
+
+
+
+# Get latest container ID
+alias docl="docker ps -l -q"
+
+# Get container process
+alias docps="docker ps"
+
+# Get process included stop container
+alias docpsa="docker ps -a"
+
+# Get images
+alias docimages="docker images"
+
+# Get container IP
+alias docip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+
+# Run deamonized container, e.g., $dkd base /bin/echo hello
+alias docd="docker run -d -P"
+
+# Run interactive container, e.g., $dki base /bin/bash
+alias doci="docker run -i -t -P"
+
+# Execute interactive container, e.g., $dex base /bin/bash
+alias dexec="docker exec -i -t"
+
+# Stop all containers
+dstop() { docker stop $(docker ps -a -q); }
+
+# Remove all containers
+docrm() { docker rm $(docker ps -a -q); }
+
+# Stop and Remove all containers
+alias docsrm='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+# Remove all images
+docrmi() { docker rmi $(docker images -q); }
+
+# Show all alias related docker, skipping functions here
+docalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
