@@ -1,3 +1,7 @@
+#!/bin/sh
+
+cd ~/.dotfiles
+
 # update system
 git pull
 
