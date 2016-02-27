@@ -16,6 +16,7 @@ sudo gem update
 # and update my Brewfile with latest list
 brew leaves | sed 's/^/install /' > osx/Brewfile
 
-git commit
+# add, commit and push everything
+git ca
 git push
 
