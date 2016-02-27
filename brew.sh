@@ -25,7 +25,6 @@ brew install libmpc
 brew install libsass
 brew install mackup
 brew install maven
-brew install homebrew/versions/maven30
 brew install moreutils
 brew install node
 brew install homebrew/dupes/openssh
@@ -36,7 +35,6 @@ brew install ruby
 brew install homebrew/dupes/screen
 brew install sloccount
 brew install pivotal/tap/springboot
-brew install sshpass
 brew install tidy-html5
 brew install vim
 brew install wget
