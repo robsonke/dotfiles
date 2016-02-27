@@ -38,7 +38,7 @@ To save all: mackup backup
 To restore from dropbox: mackup restore
 
 ## custom overrides
-To override these defaults, you can add files in a folder named "custom". That's ignored by git but will be loaded by your zsh profile. For example the DEFAULT_USER variable in .zshrc to your own username or the oh-my-zsh plugins.
+To override these defaults, you can add files in a folder named "custom". For example the DEFAULT_USER variable in .zshrc to your own username or the oh-my-zsh plugins.
 
 ## thanks
 These great tools:

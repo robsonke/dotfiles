@@ -31,6 +31,7 @@ brew install node
 brew install homebrew/dupes/openssh
 brew install pandoc
 brew install homebrew/php/php55-xdebug
+brew install python
 brew install ruby
 brew install homebrew/dupes/screen
 brew install sloccount

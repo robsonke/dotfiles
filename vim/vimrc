@@ -3,8 +3,43 @@ set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 
+"---------------------------------------------------------------------------
 " Make Vim more useful
 set nocompatible
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+Plugin 'scrooloose/nerdTree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"---------------------------------------------------------------------------
+
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -61,7 +96,7 @@ set incsearch
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
-set mouse=a
+"set mouse=a
 " Disable error bells
 set noerrorbells
 " Don’t reset cursor to start of line when moving around.
@@ -76,9 +111,20 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
+" Open NerdTree by default
+autocmd vimenter * NERDTree
+" Show hidden files by default
+let NERDTreeShowHidden=1
+" Use the powerline fonts
+let g:airline_powerline_fonts = 1
+" Enable smarter tab support
+let g:airline#extensions#tabline#enabled = 1
+" Set the solarized dark theme
+let g:airline_theme='solarized'
+
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()

@@ -31,9 +31,16 @@ mackup restore
 # set a bunch of default osx settings
 sh osx/osx
 
+# install Vundle - vim plugin manager
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# install all vim plugins with Vundle
+vim +PluginInstall +qall
+
 
 # KNOWN MISSING PARTS
 # fonts for oh my zsh agnoster theme
-#
+# the powerline fonts (clone https://github.com/powerline/fonts and run install.sh)
+#   and run: pip install powerline-status
 
 
