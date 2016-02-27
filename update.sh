@@ -5,6 +5,8 @@ cd ~/.dotfiles
 # update system
 git pull
 
+./install
+
 # Update Homebrew (Cask) & packages
 brew update
 brew upgrade
