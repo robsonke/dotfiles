@@ -3,10 +3,15 @@
 - link:
     ~/.hushlogin: osx/hushlogin
     ~/.vimrc: vim/vimrc
+    ~/.vim: vim/vim
     ~/.zshrc: zsh/zshrc
+    ~/.aliases: osx/aliases
+    ~/.functions: osx/functions
     ~/.oh-my-zsh: zsh/oh-my-zsh
     ~/.mackup.cfg: osx/mackup.cfg
     ~/.iterm2_shell_integration.zsh: zsh/iterm2_shell_integration.zsh
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

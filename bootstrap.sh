@@ -19,26 +19,15 @@ chsh -s $(which zsh)
 # run dotbot
 ./install
 
-
 # and finally, install mackup repo
 mackup restore
 
 # set a bunch of default osx settings
-sh osx/set-defaults.sh
-
-
-TODO
-aliases.zsh
-more vim settings
-git/*
-https://github.com/eduardolundgren/dotfiles/tree/master/templates
-env
+sh osx/osx
 
 
 # KNOWN MISSING PARTS
 # fonts for oh my zsh agnoster theme
-#
-#
 #
 
 

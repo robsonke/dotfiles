@@ -1,4 +1,5 @@
 # update system
+git pull
 
 # Update Homebrew (Cask) & packages
 brew update
@@ -12,8 +13,9 @@ npm update -g
 sudo gem update —system
 sudo gem update
 
-# update all app store stuff
-sh osx/update-osx.sh
+# and update my Brewfile with latest list
+brew leaves | sed 's/^/install /' > osx/Brewfile
 
- 
+git commit
+git push
 

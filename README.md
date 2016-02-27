@@ -23,6 +23,10 @@ cd ~/.dotfiles
 sh update.sh
 ```
 
+# mackup
+To save all: mackup backup
+To restore from dropbox: mackup restore
+
 ## thanks
 
 These great tools:
