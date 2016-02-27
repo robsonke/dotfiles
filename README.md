@@ -28,6 +28,10 @@ Everything is configured and tweaked within `~/.dotfiles`.
 cd ~/.dotfiles
 sh update.sh
 ```
+Or use the alias:
+```sh
+update
+```
 
 ## mackup
 To save all: mackup backup
