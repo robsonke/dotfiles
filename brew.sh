@@ -4,6 +4,7 @@ brew install archey
 brew install atlassian/tap/atlassian-plugin-sdk
 brew install bash
 brew install bash-completion
+brew install homebrew/completions/brew-cask-completion
 brew install cloog
 brew install coreutils
 brew install cscope
@@ -14,6 +15,7 @@ brew install dos2unix
 brew install editorconfig
 brew install findutils
 brew install git
+brew install git-lfs
 brew install gradle
 brew install homebrew/dupes/grep
 brew install highlight
