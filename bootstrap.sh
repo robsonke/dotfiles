@@ -42,5 +42,30 @@ vim +PluginInstall +qall
 # fonts for oh my zsh agnoster theme
 # the powerline fonts (clone https://github.com/powerline/fonts and run install.sh)
 #   and run: pip install powerline-status
+# ssh keys
+# ip-up vpn config file
+# osx network settings
+#
+# diversity of software
+# - iterm2
+# - alfredapp
+# - cinch
+# - bartender
+# - sourcetree
+# - sublime text
+# - soundnodeapp
+# - postman
+# - mamp
+# - intellij idea
+# - dropbox
+# - airfoil
+# - skype
+# - spectacle
+# - bitbar
+# - filezilla
+# - keepassx
+# - sql developer
+# - teamviewer
+# - 
 
 
