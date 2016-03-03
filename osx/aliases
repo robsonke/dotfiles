@@ -17,6 +17,9 @@ alias ls="command ls ${colorflag}"
 # Make sure my aliases are accessible
 alias sudo='sudo '
 
+# Lazy hosts check
+alias hosts='sudo vim /etc/hosts'
+
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
