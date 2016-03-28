@@ -30,7 +30,7 @@ brew leaves | sed 's/^/brew install /' > brew.sh
 brew cask list | sed 's/^/brew install Caskroom\/cask\//' > brew-cask.sh
 
 # update the mackup references
-mackup backup
+#mackup backup
 
 # add, commit and push everything
 git ca

@@ -24,6 +24,8 @@ Plugin 'scrooloose/nerdTree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,6 +85,11 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
+set expandtab
+set shiftwidth=2
+set autoindent
+set smartindent
+set cindent
 " Show “invisible” characters
 " set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 
@@ -116,6 +123,10 @@ set scrolloff=3
 
 " Open NerdTree by default
 autocmd vimenter * NERDTree
+" Jump to the main window.
+autocmd VimEnter * wincmd p
+" Open NerdTree on right side
+let g:NERDTreeWinPos = "right"
 " Show hidden files by default
 let NERDTreeShowHidden=1
 " Use the powerline fonts
