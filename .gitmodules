@@ -26,9 +26,14 @@
   path = vim/vim/bundle/vim-fugitive
   url = https://github.com/tpope/vim-fugitive.git
   ignore = dirty
-
-
-
+[submodule "vim-gitgutter"]
+  path = vim/vim/bundle/vim-gitgutter
+  url = https://github.com/airblade/vim-gitgutter.git
+  ignore = dirty
+[submodule "supertab"]
+  path = vim/vim/bundle/supertab
+  url = https://github.com/ervandew/supertab
+  ignore = dirty
 
 
 
