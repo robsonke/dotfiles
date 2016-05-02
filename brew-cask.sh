@@ -5,5 +5,6 @@ brew install Caskroom/cask/garmin-express
 brew install Caskroom/cask/go2shell
 brew install Caskroom/cask/google-chrome
 brew install Caskroom/cask/hyperswitch
+brew install Caskroom/cask/launchcontrol
 brew install Caskroom/cask/qlcolorcode
 brew install Caskroom/cask/slack
