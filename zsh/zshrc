@@ -63,7 +63,7 @@ DEFAULT_USER="robsonke"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # load my aliases and functions
-for file in ~/.{aliases,functions,dockeraliases}; do
+for file in ~/.{aliases,functions}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file

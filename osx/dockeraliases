@@ -1,33 +1,12 @@
 # ------------------------------------------------------------------------------------
-# Docker alias and function
-#   put in a separate file as these are pretty specific to docker and docker-machine
+# Docker aliases and functions
 # Disclaimer: this is gathered and adapted from several other people's aliases
 # ------------------------------------------------------------------------------------
-
-
-# Short for docker-machine
-docmac () {
-  docker-machine $@
-}
-# Switch docker pointer to another host (dmenv my_remote_host)
-docmacenv () {
-  eval "$(docker-machine env "${1:-default}")"
-}
-# Short for docker
-doc () {
-  docker $@
-}
 
 # Short for executing docker exec and jump into the running container
 dexec () {
   docker exec -it $1 bash
 }
-
-# to be used for starting docker dev profile
-# commented as we don't want to do this while loading zsh
-#docmacenv dev
-
-
 
 # Get latest container ID
 alias docl="docker ps -l -q"

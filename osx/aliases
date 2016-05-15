@@ -1,4 +1,4 @@
-### Aliases
+### Aliases & Functions
 
 ## Quick check on running tomcat processes
 alias pst='ps ax | grep -i tomcat'
@@ -33,13 +33,46 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 ## Update all software and push to github
 alias update="sh ~/.dotfiles/update.sh"
 
-## Short for executing docker exec and jump into the running container
-dexec () {
-  docker exec -it $1 bash
+## The function you just used
+function aliases() {
+  echo
+  grep -A10000 "^###" ~/.aliases | awk -f <(echo "$VAR_ALIASES")
+  echo
 }
 
 
-### Exports
+### Docker Aliases & Functions
+# Disclaimer: this is gathered and adapted from several other people's aliases
+
+## Short for executing docker exec and jump into the running container
+function dexec() { docker exec -it $1 bash }
+
+## Get latest Docker container ID
+alias docl="docker ps -l -q"
+
+## Get Docker container processes
+alias dps="docker ps"
+
+## Get Docker images
+alias dimages="docker images"
+
+## Get Docker container IP
+alias docip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+
+## Stop all Docker containers
+function dstopall() { docker stop $(docker ps -a -q); }
+
+## Remove all Docker containers
+function drm() { docker rm $(docker ps -a -q); }
+
+## Stop and Remove all Docker containers
+alias docsrm='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+## Remove all Docker images
+function drmiall() { docker rmi $(docker images -q); }
+
+
+## Exports
 
 # set sublime as my editor
 export EDITOR="vim"
@@ -65,10 +98,10 @@ export LC_ALL='en_US.UTF-8';
 
 
 
-
+#------------------------------------------------------------------------------------------------------------------------------
 # this below code is used to document aliases
 # only the lines with 2 dashes will be catched
-IFS='' read -r -d '' VAR <<'EOF'
+IFS='' read -r -d '' VAR_ALIASES <<'EOF'
 sub(/^###[[:space:]]+/,"") {
   printf "%s%s\\n----------------------------------------------------------\\n", rs, $0
   rs = "\\n"
@@ -81,11 +114,12 @@ sub(/^##[[:space:]]+/,"") {
 $1 == "alias" && sub(/=.*/,"",$2) {
   printf "%-10s - %s\\n", $2, desc
 }
+
+$1 == "function" && sub(/\(\).*/,"",$2) {
+  printf "%-10s - %s\\n", $2, desc
+}
+
 EOF
 
-function aliases() {
-  echo
-  grep -A10000 "^###" ~/.aliases | awk -f <(echo "$VAR") 
-  echo
-}
+
 
