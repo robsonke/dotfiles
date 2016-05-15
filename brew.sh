@@ -29,7 +29,6 @@ brew install mackup
 brew install maven
 brew install moreutils
 brew install node
-brew install homebrew/versions/node4-lts
 brew install homebrew/dupes/openssh
 brew install homebrew/php/php55-xdebug
 brew install python
