@@ -33,6 +33,12 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 ## Update all software and push to github
 alias update="sh ~/.dotfiles/update.sh"
 
+## Print all java homes
+alias javahomes="/usr/libexec/java_home -V"
+
+## Flush the local dns cache
+alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
+
 ## The function you just used
 function aliases() {
   echo

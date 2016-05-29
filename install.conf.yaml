@@ -7,7 +7,6 @@
     ~/.zshrc: zsh/zshrc
     ~/.aliases: osx/aliases
     ~/.functions: osx/functions
-    ~/.dockeraliases: osx/dockeraliases
     ~/.oh-my-zsh: zsh/oh-my-zsh
     ~/.mackup.cfg: osx/mackup.cfg
     ~/.iterm2_shell_integration.zsh: zsh/iterm2_shell_integration.zsh

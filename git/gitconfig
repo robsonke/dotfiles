@@ -91,3 +91,5 @@
 	default = simple
 [credential]
 	helper = osxkeychain
+[commit]
+	template = /Users/robsonke/.stCommitMsg
