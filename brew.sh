@@ -18,6 +18,7 @@ brew install git
 brew install git-lfs
 brew install gradle
 brew install homebrew/dupes/grep
+brew install groovy
 brew install highlight
 brew install hugo
 brew install tomanthony/brews/itermocil
