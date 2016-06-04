@@ -22,11 +22,13 @@ WIFI_NAME="$(networksetup -getairportnetwork $WIFI_DEV | sed s/'Current Wi-Fi Ne
 CURRENT_LOCATION="$(networksetup -getcurrentlocation)"
 WIFI_STRING="$(networksetup -getairportnetwork $WIFI_DEV)"
 
-#if [[ $WIFI_STRING == 'Current Wi*' ]]
-#then
-#  echo 'jaa'
+echo 'Current wifi: '$WIFI_NAME
+
+# Check if we are on a wifi network
+if [[ $WIFI_STRING == 'Current Wi'* ]]
+then
   # Check and change location
-  if [ $HOME_WIFI = $WIFI_NAME ]
+  if [[ "$WIFI_NAME" == $HOME_WIFI* ]]
   then
     if [ $CURRENT_LOCATION != $HOME_LOCATION ]
     then
@@ -34,7 +36,7 @@ WIFI_STRING="$(networksetup -getairportnetwork $WIFI_DEV)"
       osascript -e 'display notification "Home sweet home!" with title "Switched to location Home"'
       exit
     fi
-  elif [ $WORK_WIFI = $WIFI_NAME ]
+  elif [[ "$WIFI_NAME" == $WORK_WIFI* ]]
   then
     if [ $CURRENT_LOCATION != $WORK_LOCATION ]
     then
@@ -43,7 +45,7 @@ WIFI_STRING="$(networksetup -getairportnetwork $WIFI_DEV)"
       osascript -e 'display notification "Rise and shine, a new working day has started." with title "Switched to location Office"'
       exit
     fi
-  elif [ $PUNE_WIFI = $WIFI_NAME ]
+  elif [[ "$WIFI_NAME" == $PUNE_WIFI* ]]
   then
     if [ $CURRENT_LOCATION != $PUNE_LOCATION ]
     then
@@ -61,4 +63,4 @@ WIFI_STRING="$(networksetup -getairportnetwork $WIFI_DEV)"
       exit
     fi
   fi
-#fi
+fi
