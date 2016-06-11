@@ -1,5 +1,6 @@
 brew install Caskroom/cask/atom
 brew install Caskroom/cask/betterzipql
+brew install Caskroom/cask/bitbar
 brew install Caskroom/cask/firefox
 brew install Caskroom/cask/garmin-express
 brew install Caskroom/cask/go2shell

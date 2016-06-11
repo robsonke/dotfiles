@@ -2,7 +2,7 @@
 	name = Rob Sonke
 	email = r.sonke@maxxton.com
 [core]
-	excludesfile = /Users/robsonke/.gitignore_global
+	excludesfile = ~/.gitignore_global
   editor = vim
 
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -92,4 +92,4 @@
 [credential]
 	helper = osxkeychain
 [commit]
-	template = /Users/robsonke/.stCommitMsg
+	template = ~/.stCommitMsg
