@@ -12,6 +12,7 @@
     ~/.iterm2_shell_integration.zsh: zsh/iterm2_shell_integration.zsh
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
+    ~/.stCommitMsg: git/stCommitMsg
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
