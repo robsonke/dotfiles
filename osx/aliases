@@ -22,6 +22,9 @@ alias sudo='sudo '
 ## Lazy hosts check
 alias hosts='sudo vim /etc/hosts'
 
+## Switch between nodejs versions, use: nodeversion 5
+alias nodeversion='nvm use'
+
 ## Show hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 ## Hide hidden files in Finder
