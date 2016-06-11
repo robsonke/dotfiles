@@ -1,5 +1,6 @@
 brew cask install alfred
 brew cask install atom
+brew cask install bartender
 brew cask install betterzipql
 brew cask install bitbar
 brew cask install firefox
