@@ -30,7 +30,6 @@ brew install mackup
 brew install maven
 brew install moreutils
 brew install node
-brew install homebrew/versions/node5
 brew install homebrew/dupes/openssh
 brew install homebrew/php/php55-xdebug
 brew install python

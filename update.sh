@@ -12,6 +12,7 @@ brew update
 brew upgrade
 
 # install all from bundle, to avoid overriding missing packages below
+brew tap caskroom/versions
 ./brew.sh
 ./brew-cask.sh
 brew cleanup
@@ -27,7 +28,7 @@ sudo gem update
 
 # and update my brew install file with latest list
 brew leaves | sed 's/^/brew install /' > brew.sh
-brew cask list | sed 's/^/brew install Caskroom\/cask\//' > brew-cask.sh
+brew cask list | sed 's/^/brew cask install /' > brew-cask.sh
 
 # update the mackup references
 #mackup backup

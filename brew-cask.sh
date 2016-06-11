@@ -1,23 +1,23 @@
-brew install Caskroom/cask/alfred
-brew install Caskroom/cask/atom
-brew install Caskroom/cask/betterzipql
-brew install Caskroom/cask/bitbar
-brew install Caskroom/cask/firefox
-brew install Caskroom/cask/flux
-brew install Caskroom/cask/garmin-express
-brew install Caskroom/cask/go2shell
-brew install Caskroom/cask/google-chrome
-brew install Caskroom/cask/hyperswitch
-brew install Caskroom/cask/istat-menus
-brew install Caskroom/cask/iterm2-beta
-brew install Caskroom/cask/launchcontrol
-brew install Caskroom/cask/postman
-brew install Caskroom/cask/qlcolorcode
-brew install Caskroom/cask/slack
-brew install Caskroom/cask/soapui
-brew install Caskroom/cask/soundnode
-brew install Caskroom/cask/sourcetree
-brew install Caskroom/cask/sublime-text3
-brew install Caskroom/cask/teamviewer
-brew install Caskroom/cask/the-unarchiver
-brew install Caskroom/cask/vlc
+brew cask install alfred
+brew cask install atom
+brew cask install betterzipql
+brew cask install bitbar
+brew cask install firefox
+brew cask install flux
+brew cask install garmin-express
+brew cask install go2shell
+brew cask install google-chrome
+brew cask install hyperswitch
+brew cask install istat-menus
+brew cask install iterm2-beta
+brew cask install launchcontrol
+brew cask install postman
+brew cask install qlcolorcode
+brew cask install slack
+brew cask install soapui
+brew cask install soundnode
+brew cask install sourcetree
+brew cask install sublime-text3
+brew cask install teamviewer
+brew cask install the-unarchiver
+brew cask install vlc
