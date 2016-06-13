@@ -44,4 +44,5 @@ brew install xctool
 brew install z
 brew install homebrew/dupes/zlib
 brew install zsh
+brew install zsh-completions
 brew install zsh-syntax-highlighting

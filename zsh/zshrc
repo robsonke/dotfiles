@@ -53,7 +53,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 
 # IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
-plugins=(docker osx brew gradle sublime docker-machine yeoman zsh-syntax-highlighting)
+plugins=(docker osx brew gradle zsh-syntax-highlighting)
 
 # User configuration
 
@@ -61,6 +61,9 @@ plugins=(docker osx brew gradle sublime docker-machine yeoman zsh-syntax-highlig
 DEFAULT_USER="robsonke"
 . `brew --prefix`/etc/profile.d/z.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zsh completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Nodejs version manager
 export NVM_DIR="$HOME/.nvm"

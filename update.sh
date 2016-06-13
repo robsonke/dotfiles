@@ -14,7 +14,12 @@ brew upgrade
 # install all from bundle, to avoid overriding missing packages below
 brew tap caskroom/versions
 ./brew.sh
+# install possible new software
 ./brew-cask.sh
+
+# and run some cask updates, might not be needed but for sure
+./update-cask.sh
+
 brew cleanup
 brew cask cleanup
 
