@@ -93,3 +93,5 @@
 	helper = osxkeychain
 [commit]
 	template = ~/.stCommitMsg
+[diff]
+	compactionHeuristic = true
