@@ -1,4 +1,5 @@
 brew install ack
+brew install android-sdk
 brew install ant
 brew install archey
 brew install atlassian/tap/atlassian-plugin-sdk
