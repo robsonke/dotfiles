@@ -11,6 +11,7 @@ brew cask install google-chrome
 brew cask install hyperswitch
 brew cask install istat-menus
 brew cask install iterm2-beta
+brew cask install java
 brew cask install launchcontrol
 brew cask install postman
 brew cask install qlcolorcode
@@ -18,7 +19,6 @@ brew cask install slack
 brew cask install soapui
 brew cask install soundnode
 brew cask install sourcetree
-brew cask install sublime-text3
 brew cask install teamviewer
 brew cask install the-unarchiver
 brew cask install vlc

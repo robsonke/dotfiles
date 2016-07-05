@@ -32,6 +32,7 @@ brew install maven
 brew install moreutils
 brew install nvm
 brew install homebrew/dupes/openssh
+brew install perl
 brew install homebrew/php/php55-xdebug
 brew install python
 brew install ruby
