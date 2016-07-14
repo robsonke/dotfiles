@@ -19,6 +19,7 @@ brew cask install slack
 brew cask install soapui
 brew cask install soundnode
 brew cask install sourcetree
+brew cask install spotify
 brew cask install teamviewer
 brew cask install the-unarchiver
 brew cask install vlc
