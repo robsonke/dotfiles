@@ -9,6 +9,7 @@ brew install homebrew/completions/brew-cask-completion
 brew install cloog
 brew install coreutils
 brew install cscope
+brew install diff-so-fancy
 brew install dnsmasq
 brew install docker
 brew install docker-machine
