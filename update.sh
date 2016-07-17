@@ -15,7 +15,7 @@ brew upgrade
 brew tap caskroom/versions
 ./brew.sh
 # install possible new software
-#./brew-cask.sh
+./brew-cask.sh
 
 # and run some cask updates, might not be needed but for sure
 ./update-cask.sh
