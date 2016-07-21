@@ -5,6 +5,7 @@ cd ~/.dotfiles
 # update system
 git pull
 
+# run dotbot install / config
 ./install
 
 # Update Homebrew (Cask) & packages
@@ -14,14 +15,9 @@ brew upgrade
 # install all from bundle, to avoid overriding missing packages below
 brew tap caskroom/versions
 ./brew.sh
-# install possible new software
-#./brew-cask.sh
 
-# and run some cask updates, might not be needed but for sure
+# run some cask updates
 ./update-cask.sh
-
-brew cleanup
-brew cask cleanup
 
 # Update npm & packages
 npm install npm -g

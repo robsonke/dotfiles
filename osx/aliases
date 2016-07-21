@@ -6,6 +6,8 @@ alias pst='ps ax | grep -i tomcat'
 alias psj='ps ax | grep -i java'
 ## Quick check on running node processes
 alias psn='ps ax | grep -i node'
+## Quick process grep alias
+alias psg='ps ax | grep'
 
 ## List all files colorized in long format
 alias ll="ls -ltrhF ${colorflag}"
