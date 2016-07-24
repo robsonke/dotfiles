@@ -1,3 +1,4 @@
+brew cask install 1password
 brew cask install alfred
 brew cask install atom
 brew cask install bartender
