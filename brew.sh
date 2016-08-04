@@ -40,6 +40,7 @@ brew install ruby
 brew install homebrew/dupes/screen
 brew install sloccount
 brew install pivotal/tap/springboot
+brew install ravenac95/sudolikeaboss/sudolikeaboss
 brew install tidy-html5
 brew install vim
 brew install wget
