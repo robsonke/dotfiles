@@ -2,7 +2,6 @@ brew install ack
 brew install android-sdk
 brew install ant
 brew install archey
-brew install atlassian/tap/atlassian-plugin-sdk
 brew install bash
 brew install bash-completion
 brew install homebrew/completions/brew-cask-completion
