@@ -42,6 +42,7 @@ brew install sloccount
 brew install pivotal/tap/springboot
 brew install ravenac95/sudolikeaboss/sudolikeaboss
 brew install tidy-html5
+brew install tmux
 brew install vim
 brew install wget
 brew install xctool

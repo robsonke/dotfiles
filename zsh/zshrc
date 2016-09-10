@@ -70,7 +70,7 @@ export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
 # load my aliases and functions
-for file in ~/.{aliases,functions}; do
+for file in ~/.{aliases,exports}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file

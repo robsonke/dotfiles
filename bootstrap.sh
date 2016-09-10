@@ -40,6 +40,7 @@ vim +PluginInstall +qall
 
 # KNOWN MISSING PARTS
 # fonts for oh my zsh agnoster theme
+# solarized color schemes
 # the powerline fonts (clone https://github.com/powerline/fonts and run install.sh)
 #   and run: pip install powerline-status
 # ssh keys
@@ -47,25 +48,11 @@ vim +PluginInstall +qall
 # osx network settings
 #
 # diversity of software
-# - iterm2
-# - alfredapp
-# - cinch
-# - bartender
-# - sourcetree
-# - sublime text
-# - soundnodeapp
-# - postman
-# - mamp
 # - intellij idea
+# - yourkit
+# - garmin software
 # - dropbox
-# - airfoil
 # - skype
-# - spectacle
-# - bitbar
-# - filezilla
-# - keepassx
 # - sql developer
-# - teamviewer
-# - 
 
 
