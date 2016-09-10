@@ -24,9 +24,6 @@ alias sudo='sudo '
 ## Lazy hosts check
 alias hosts='sudo vim /etc/hosts'
 
-## Switch between nodejs versions, use: nodeversion 5
-alias nodeversion='nvm use'
-
 ## Show hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 ## Hide hidden files in Finder
@@ -120,6 +117,14 @@ function resize-images() {
   open resized/
 }
 
+## Switch between nodejs versions, use: nodeversion 5
+function nodeversion() {
+  # normally put in .zshrc but this makes opening terminal session terrible slow
+  # Nodejs version manager
+  export NVM_DIR="$HOME/.nvm"
+  source $(brew --prefix nvm)/nvm.sh
+  nvm use $1
+}
 
 ### Docker Aliases & Functions
 # Disclaimer: this is gathered and adapted from several other people's aliases
