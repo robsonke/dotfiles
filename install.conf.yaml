@@ -14,6 +14,8 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.stCommitMsg: git/stCommitMsg
     ~/.nvmrc: nvm/nvmrc
+    ~/.dircolors: osx/dircolors
+    ~/.inputrc: osx/inputrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
