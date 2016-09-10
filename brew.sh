@@ -24,6 +24,7 @@ brew install highlight
 brew install hugo
 brew install tomanthony/brews/itermocil
 brew install jq
+brew install kubernetes-cli
 brew install libidn
 brew install libmpc
 brew install libsass
