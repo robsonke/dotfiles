@@ -18,6 +18,7 @@ brew tap caskroom/versions
 
 # run some cask updates
 ./update-cask.sh
+./brew-cask.sh
 
 # Update npm & packages
 npm install npm -g
