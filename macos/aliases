@@ -119,10 +119,6 @@ function resize-images() {
 
 ## Switch between nodejs versions, use: nodeversion 5
 function nodeversion() {
-  # normally put in .zshrc but this makes opening terminal session terrible slow
-  # Nodejs version manager
-  export NVM_DIR="$HOME/.nvm"
-  source $(brew --prefix nvm)/nvm.sh
   nvm use $1
 }
 
