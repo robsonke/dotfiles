@@ -15,9 +15,10 @@ ctrl + w = navigate mode
 # tmux
 tmux = start it
 tmux ls = show all sessions
+tmux kill-server = stop server
 ctrl + b = activate tmux mode
-+ % = new vertical panel
-+ " = new horizontal panel
++ v = new vertical panel
++ h = new horizontal panel
 + arrows = navigate over panels
 + z = zoom in/out current panel
 

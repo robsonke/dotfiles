@@ -103,7 +103,7 @@ set incsearch
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
-"set mouse=a
+set mouse=a
 " Disable error bells
 set noerrorbells
 " Don’t reset cursor to start of line when moving around.
@@ -122,9 +122,9 @@ set showcmd
 set scrolloff=3
 
 " Open NerdTree by default
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 " Jump to the main window.
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * wincmd p
 " Open NerdTree on right side
 let g:NERDTreeWinPos = "right"
 " Show hidden files by default

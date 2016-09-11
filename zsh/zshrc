@@ -52,7 +52,7 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
-plugins=(docker osx brew gradle zsh-syntax-highlighting)
+plugins=(docker osx brew gradle tmux zsh-syntax-highlighting)
 
 
 ##############################################################################################
