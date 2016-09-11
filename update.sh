@@ -1,34 +1,46 @@
-#!/bin/sh
+#!/bin/bash
 
 cd ~/.dotfiles
+# include functions
+source macos/functions
 
 # update system
+log_info "Get latest source files from Github"
 git pull
 
+# include functions, could be renewed
+source macos/functions
+
 # run dotbot install / config
+log_info "Run dotbot to link config files"
 sh dotbot-config/install-dotbot
 
-# Update Homebrew (Cask) & packages
-brew update
-brew upgrade
+# update Homebrew (Cask) & packages
+log_info "Brew upgrades and installations"
+brew_cleanup_all
+brew_upgrade
+brew_cask_upgrade
 
-# install all from bundle, to avoid overriding missing packages below
-brew tap caskroom/versions
-sh brew/brew.sh
+brew cleanup
+brew cask cleanup
+brew doctor
 
-# run some cask updates
-sh brew/update-cask.sh
-sh brew/brew-cask.sh
+# install new packages from the lists in brew.sh and brew-cask.sh
+brew_install_missing
+brew_cask_install_missing
 
 # Update npm & packages
+log_info "Update NPM packages"
 npm install npm -g
 npm update -g
 
-# Update Ruby & gems
+# update Ruby & gems
+log_info "Update Gems"
 sudo gem update —system
 sudo gem update
 
-# and update my brew install file with latest list
+# and update my brew and cask install file with latest list
+log_info "Update brew and cask install files"
 brew leaves | sed 's/^/brew install /' > brew/brew.sh
 brew cask list | sed 's/^/brew cask install /' > brew/brew-cask.sh
 
@@ -36,6 +48,7 @@ brew cask list | sed 's/^/brew cask install /' > brew/brew-cask.sh
 #mackup backup
 
 # add, commit and push everything
+log_info "Push everything back to Github"
 git ca
 git push
 

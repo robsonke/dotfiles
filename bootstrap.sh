@@ -10,6 +10,7 @@ brew tap caskroom/versions
 # install all required brew packages
 brew update
 sh brew/brew.sh
+sh brew/brew-cask.sh
 brew cleanup
 
 # create some default vim folders

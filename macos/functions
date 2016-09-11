@@ -1,0 +1,152 @@
+#!/bin/bash
+
+####################################################################################
+#  Does a mass upgrade of your Homebrew apps and allows you to interactively       #
+#  select which Cask apps to upgrade.                                              #
+#                                                                                  #
+#  Based on:                                                                       #
+#  https://github.com/derrekyoung/ScriptsAndUtils/blob/master/brew-cask-upgrade.sh #
+#                                                                                  #
+####################################################################################
+
+brew_cleanup_all() {
+  echo "Cleaning up..."
+  brew update && brew cleanup && brew cask cleanup
+  echo "Clean finished.\n\n"
+}
+
+#
+# This upgrades brew packages
+#
+brew_upgrade() {
+  log_info "Updating Brew apps..."
+
+  printf '=%.0s' {1..82}
+  printf '\n'
+  printf "%-40s | %-20s | %-5s\n" "BREW NAME" "LATEST VERSION" "LATEST INSTALLED"
+  printf '=%.0s' {1..82}
+  printf '\n'
+
+
+  for item in $(brew list); do
+    local BREW_INFO=$(brew info $item)
+    local BREW_NAME="$item"
+    local NEW_VERSION=$(echo "$BREW_INFO" | grep -e "$BREW_NAME: .*" | cut -d" " -f3 | sed 's/,//g')
+    local IS_CURRENT_VERSION_INSTALLED=$(echo "$BREW_INFO" | grep -q ".*/Cellar/$BREW_NAME/$NEW_VERSION.*" 2>&1 && echo true )
+
+    printf "%-40s | %-20s | %-20s\n" "$BREW_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
+
+    # I don't know why, but != true does not work here...
+    if [[ "$CURRENT_VERSION_INSTALLED" ]]; then
+      brew upgrade $item
+    fi
+    BREW_INFO=""
+    NEW_VERSION=""
+    IS_CURRENT_VERSION_INSTALLED=""
+  done
+
+  log_info "Brew upgrades finished."
+}
+
+#
+# This upgrades brew cask packages
+#
+brew_cask_upgrade() {
+  log_info "Updating Cask apps..."
+
+  printf '=%.0s' {1..82}
+  printf '\n'
+  printf "%-40s | %-20s | %-5s\n" "CASK NAME" "LATEST VERSION" "LATEST INSTALLED"
+  printf '=%.0s' {1..82}
+  printf '\n'
+
+  for c in $(brew cask list); do
+    local CASK_INFO=$(brew cask info $c)
+    local CASK_NAME=$(echo "$c" | cut -d ":" -f1 | xargs)
+    local NEW_VERSION=$(echo "$CASK_INFO" | grep -e "$CASK_NAME: .*" | cut -d ":" -f2 | sed 's/ *//' )
+    local IS_CURRENT_VERSION_INSTALLED=$(echo "$CASK_INFO" | grep -q ".*/Caskroom/$CASK_NAME/$NEW_VERSION.*" 2>&1 && echo true )
+
+    printf "%-40s | %-20s | %-20s\n" "$CASK_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
+
+    # Install if not up-to-date
+    if [[ "$IS_CURRENT_VERSION_INSTALLED" != true ]]; then
+      brew cask install "$CASK_NAME" --force
+    fi
+
+    CASK_INFO=""
+    NEW_VERSION=""
+    IS_CURRENT_VERSION_INSTALLED=""
+  done
+
+
+  log_info "Cask upgrades finished."
+}
+
+#
+# This installs all missing brew packages, based on the ones in brew.sh
+#
+function brew_install_missing() {
+  log_info "Missing brew apps started."
+
+  red=`tput setaf 1`
+  green=`tput setaf 2`
+  reset=`tput sgr0`
+
+  while read item; do
+    item=${item/brew install /}
+
+    installed="$(brew info $item | grep 'Not installed')"
+    if [[ $installed = *[!\ ]* ]]; then
+      echo "${item} is ${red}not installed${reset}."
+      brew install "$item" --force
+    else
+      echo "${item} is ${green}installed${reset}."
+    fi
+  done <brew/brew.sh
+
+  log_info "Missing brew apps finished."
+}
+
+#
+# This installs all missing brew cask packages, based on the ones in brew-cask.sh
+#
+function brew_cask_install_missing() {
+  log_info "Missing brew cask apps started."
+
+  red=`tput setaf 1`
+  green=`tput setaf 2`
+  reset=`tput sgr0`
+
+  while read cask; do
+    cask=${cask/brew cask install /}
+
+    installed="$(brew cask info $cask | grep 'Not installed')"
+    if [[ $installed = *[!\ ]* ]]; then
+      echo "${cask} is ${red}not installed${reset}."
+      brew cask install "$CASK_NAME" --force
+    else
+      echo "${cask} is ${green}already installed${reset}."
+    fi
+  done <brew/brew-cask.sh
+
+  log_info "Missing brew cask apps finished."
+}
+
+log_info() {
+  echo "\n****************************************************************************"
+  echo "INFO:  $1"
+  echo "****************************************************************************\n"
+}
+
+# End of brew functions
+########################################################################################################
+
+
+
+
+
+
+
+
+
+
