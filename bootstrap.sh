@@ -9,7 +9,7 @@ brew tap caskroom/versions
 
 # install all required brew packages
 brew update
-./brew.sh
+sh brew/brew.sh
 brew cleanup
 
 # create some default vim folders
@@ -23,7 +23,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 chsh -s $(which zsh)
 
 # run dotbot
-./install
+sh dotbot-config/install-dotbot
 
 # and finally, install mackup repo
 mackup restore

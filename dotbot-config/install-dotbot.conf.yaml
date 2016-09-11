@@ -1,0 +1,24 @@
+- clean: ['~']
+
+- link:
+    ~/.hushlogin: ../macos/hushlogin
+    ~/.vimrc: ../vim/vimrc
+    ~/.vim: ../vim/vim
+    ~/.zshrc: ../zsh/zshrc
+    ~/.aliases: ../macos/aliases
+    ~/.functions: ../macos/functions
+    ~/.oh-my-zsh: ../zsh/oh-my-zsh
+    ~/.mackup.cfg: ../macos/mackup.cfg
+    ~/.iterm2_shell_integration.zsh: ../zsh/iterm2_shell_integration.zsh
+    ~/.gitconfig: ../git/gitconfig
+    ~/.gitignore_global: ../git/gitignore_global
+    ~/.stCommitMsg: ../git/stCommitMsg
+    ~/.nvmrc: ../nvm/nvmrc
+    ~/.dircolors: ../macos/dircolors
+    ~/.inputrc: ../macos/inputrc
+    ~/.tmux.conf: ../macos/tmux.conf
+    ~/.exports: ../macos/exports
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
