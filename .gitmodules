@@ -34,7 +34,18 @@
   path = vim/vim/bundle/supertab
   url = https://github.com/ervandew/supertab
   ignore = dirty
-
+[submodule "syntastic"]
+  path = vim/vim/bundle/syntastic
+  url = https://github.com/scrooloose/syntastic
+  ignore = dirty
+[submodule "YouCompleteMe"]
+  path = vim/vim/bundle/YouCompleteMe
+  url = https://github.com/Valloric/YouCompleteMe
+  ignore = dirty
+[submodule "vim-tmux-navigator"]
+  path = vim/vim/bundle/vim-tmux-navigator
+  url = https://github.com/christoomey/vim-tmux-navigator
+  ignore = dirty
 
 
 
