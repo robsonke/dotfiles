@@ -5,7 +5,6 @@ brew cask install atom
 brew cask install bartender
 brew cask install betterzipql
 brew cask install bitbar
-brew cask install cinch
 brew cask install filezilla
 brew cask install firefox
 brew cask install flux
