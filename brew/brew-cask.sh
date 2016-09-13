@@ -2,12 +2,14 @@ brew cask install 1password
 brew cask install airfoil
 brew cask install alfred
 brew cask install atom
+brew cask install avibrazil-rdm
 brew cask install bartender
 brew cask install betterzipql
 brew cask install bitbar
 brew cask install filezilla
 brew cask install firefox
 brew cask install flux
+brew cask install franz
 brew cask install garmin-express
 brew cask install go2shell
 brew cask install google-chrome
