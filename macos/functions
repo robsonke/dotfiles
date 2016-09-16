@@ -36,8 +36,7 @@ brew_upgrade() {
 
     printf "%-40s | %-20s | %-20s\n" "$BREW_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
 
-    # I don't know why, but != true does not work here...
-    if [[ $CURRENT_VERSION_INSTALLED ]]; then
+    if [[ -z "${IS_CURRENT_VERSION_INSTALLED}" ]]; then
       brew upgrade $item
     fi
     BREW_INFO=""
@@ -69,7 +68,7 @@ brew_cask_upgrade() {
     printf "%-40s | %-20s | %-20s\n" "$CASK_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
 
     # Install if not up-to-date
-    if [[ "$IS_CURRENT_VERSION_INSTALLED" != true ]]; then
+    if [[ -z "$IS_CURRENT_VERSION_INSTALLED" ]]; then
       brew cask install "$CASK_NAME" --force
     fi
 
