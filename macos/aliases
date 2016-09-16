@@ -18,6 +18,9 @@ alias la="ls -ltrhaF ${colorflag}"
 ## Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 
+## Use colorized cat (ccat) instead of normal cat
+alias cat=ccat
+
 ## Make sure my aliases are accessible
 alias sudo='sudo '
 
@@ -105,7 +108,9 @@ function resize-images() {
     cp $file $new
 
     # resize and move
-    sips --resampleHeightWidth $height $width --setProperty formatOptions 80 $new --out resized/
+    sips --resampleHeightWidthMax ${width}x${height} --setProperty formatOptions 80 $new --out resized/
+
+    
 
     # remove temp file
     rm $new

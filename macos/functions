@@ -37,7 +37,7 @@ brew_upgrade() {
     printf "%-40s | %-20s | %-20s\n" "$BREW_NAME" "$NEW_VERSION" "$IS_CURRENT_VERSION_INSTALLED"
 
     # I don't know why, but != true does not work here...
-    if [[ "$CURRENT_VERSION_INSTALLED" ]]; then
+    if [[ $CURRENT_VERSION_INSTALLED ]]; then
       brew upgrade $item
     fi
     BREW_INFO=""

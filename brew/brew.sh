@@ -5,6 +5,7 @@ brew install archey
 brew install bash
 brew install bash-completion
 brew install homebrew/completions/brew-cask-completion
+brew install ccat
 brew install cloog
 brew install coreutils
 brew install cscope
