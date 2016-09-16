@@ -20,6 +20,7 @@ brew cask install java
 brew cask install keepassx
 brew cask install launchcontrol
 brew cask install mamp
+brew cask install moeditor
 brew cask install postman
 brew cask install qlcolorcode
 brew cask install slack

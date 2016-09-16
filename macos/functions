@@ -122,7 +122,7 @@ function brew_cask_install_missing() {
     installed="$(brew cask info $cask | grep 'Not installed')"
     if [[ $installed = *[!\ ]* ]]; then
       echo "${cask} is ${red}not installed${reset}."
-      brew cask install "$CASK_NAME" --force
+      brew cask install "$cask" --force
     else
       echo "${cask} is ${green}already installed${reset}."
     fi
