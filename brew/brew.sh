@@ -30,6 +30,7 @@ brew install libidn
 brew install libmpc
 brew install libsass
 brew install mackup
+brew install mas
 brew install maven
 brew install moreutils
 brew install nvm
