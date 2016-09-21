@@ -30,7 +30,7 @@ sh dotbot-config/install-dotbot
 mackup restore
 
 # set a bunch of default osx settings
-sh osx/osx
+sh macos/macos
 
 # install Vundle - vim plugin manager
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
