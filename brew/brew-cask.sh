@@ -23,6 +23,7 @@ brew cask install mamp
 brew cask install moeditor
 brew cask install postman
 brew cask install qlcolorcode
+brew cask install shimo
 brew cask install slack
 brew cask install soapui
 brew cask install soundnode

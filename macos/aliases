@@ -41,6 +41,9 @@ alias javahomes="/usr/libexec/java_home -V"
 ## Flush the local dns cache
 alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 
+## Reset the Homebrew Git repository back to master
+alias brew_reset="cd $(brew --repository) && git fetch && git reset --hard origin/master && git pull"
+
 ### Utility Functions
 
 ## The function you just used
