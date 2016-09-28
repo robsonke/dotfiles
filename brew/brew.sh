@@ -5,7 +5,6 @@ brew install archey
 brew install bash
 brew install bash-completion
 brew install homebrew/completions/brew-cask-completion
-brew install vitorgalvao/tiny-scripts/cask-repair
 brew install ccat
 brew install cloog
 brew install coreutils
