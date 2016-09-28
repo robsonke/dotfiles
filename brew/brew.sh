@@ -49,7 +49,6 @@ brew install tidy-html5
 brew install tmux
 brew install vim
 brew install wget
-brew install xctool
 brew install z
 brew install homebrew/dupes/zlib
 brew install zsh

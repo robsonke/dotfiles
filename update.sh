@@ -43,7 +43,7 @@ sudo gem update
 log_info "Update brew and cask install files"
 brew leaves | sed 's/^/brew install /' > brew/brew.sh
 brew cask list | sed 's/^/brew cask install /' > brew/brew-cask.sh
-mas list > macos/appstore.lst
+mas list | sort > macos/appstore.lst
 
 # update the mackup references
 #mackup backup
