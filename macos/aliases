@@ -110,6 +110,9 @@ function resize-images() {
 
     cp $file $new
 
+    # possibly rotate an image
+    jhead -autorot $new
+
     # resize and move
     sips --resampleHeightWidthMax ${width}x${height} --setProperty formatOptions 80 $new --out resized/
 

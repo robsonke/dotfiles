@@ -26,6 +26,7 @@ brew install groovy
 brew install highlight
 brew install hugo
 brew install tomanthony/brews/itermocil
+brew install jhead
 brew install jq
 brew install kubernetes-cli
 brew install libidn
