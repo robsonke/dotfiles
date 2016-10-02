@@ -13,12 +13,13 @@ brew install cscope
 brew install diff-so-fancy
 brew install dnsmasq
 brew install docker
-brew install docker-machine
+brew install docker-machine-driver-xhyve
 brew install dos2unix
 brew install editorconfig
 brew install findutils
 brew install git
 brew install git-lfs
+brew install gofabric8
 brew install gradle
 brew install homebrew/dupes/grep
 brew install groovy

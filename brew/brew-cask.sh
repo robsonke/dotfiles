@@ -33,4 +33,6 @@ brew cask install spectacle
 brew cask install spotify
 brew cask install teamviewer
 brew cask install the-unarchiver
+brew cask install vagrant
+brew cask install vagrant-manager
 brew cask install vlc
