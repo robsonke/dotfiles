@@ -17,6 +17,8 @@ brew install docker-machine-driver-xhyve
 brew install dos2unix
 brew install editorconfig
 brew install findutils
+brew install freetype
+brew install gettext
 brew install git
 brew install git-lfs
 brew install gofabric8
@@ -25,13 +27,15 @@ brew install homebrew/dupes/grep
 brew install groovy
 brew install highlight
 brew install hugo
+brew install icu4c
 brew install tomanthony/brews/itermocil
-brew install jhead
+brew install jpeg
 brew install jq
 brew install kubernetes-cli
 brew install libidn
 brew install libmpc
 brew install libsass
+brew install libxml2
 brew install mackup
 brew install mas
 brew install maven
@@ -40,7 +44,6 @@ brew install nvm
 brew install openshift-cli
 brew install homebrew/dupes/openssh
 brew install perl
-brew install homebrew/php/php55-xdebug
 brew install python
 brew install ruby
 brew install homebrew/dupes/screen
@@ -49,6 +52,7 @@ brew install pivotal/tap/springboot
 brew install ravenac95/sudolikeaboss/sudolikeaboss
 brew install tidy-html5
 brew install tmux
+brew install unixodbc
 brew install vim
 brew install wget
 brew install z
