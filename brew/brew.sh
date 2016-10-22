@@ -55,6 +55,7 @@ brew install tmux
 brew install unixodbc
 brew install vim
 brew install wget
+brew install xz
 brew install z
 brew install homebrew/dupes/zlib
 brew install zsh
