@@ -30,7 +30,7 @@ brew_upgrade() {
   for item in $(brew list); do
     local BREW_NAME="$item"
     local BREW_INFO=$(brew info $item)
-    local BREW_OUTDATED=$(brew outdated $item)
+    local BREW_OUTDATED=$(brew outdated --verbose $item)
     local CURRENT_VERSION=$(cut -d " " -f 2 <<< "$(brew list $item --versions)")
 
     if [[ $(echo $BREW_OUTDATED) ]]; then
