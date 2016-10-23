@@ -31,6 +31,7 @@ brew_cask_install_missing
 
 # Update npm & packages
 log_info "Update NPM packages"
+npm set registry https://npm.maxxton.com
 npm install npm -g
 npm update -g
 
@@ -41,7 +42,7 @@ sudo gem update
 
 # and update my brew and cask install file with latest list
 log_info "Update brew and cask install files"
-brew leaves | sed 's/^/brew install /' > brew/brew.sh
+brew list | sed 's/^/brew install /' > brew/brew.sh
 brew cask list | sed 's/^/brew cask install /' > brew/brew-cask.sh
 mas list | sort > macos/appstore.lst
 
