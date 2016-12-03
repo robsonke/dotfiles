@@ -2,14 +2,17 @@ brew install ack
 brew install android-sdk
 brew install ant
 brew install archey
+brew install aspcud
 brew install autoconf
 brew install automake
 brew install bash
 brew install bash-completion
 brew install boost
 brew install brew-cask-completion
+brew install camlp4
 brew install cask-repair
 brew install ccat
+brew install clasp
 brew install cloog
 brew install cmake
 brew install coreutils
@@ -33,6 +36,7 @@ brew install go
 brew install gofabric8
 brew install gradle
 brew install grep
+brew install gringo
 brew install groovy
 brew install highlight
 brew install hr
@@ -45,6 +49,7 @@ brew install jhead
 brew install jpeg
 brew install jq
 brew install kubernetes-cli
+brew install libev
 brew install libevent
 brew install libidn
 brew install libmpc
@@ -61,7 +66,10 @@ brew install md5sha1sum
 brew install moreutils
 brew install mpfr
 brew install nvm
+brew install ocaml
+brew install ocamlbuild
 brew install oniguruma
+brew install opam
 brew install openshift-cli
 brew install openssh
 brew install openssl
