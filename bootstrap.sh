@@ -9,6 +9,7 @@ brew tap homebrew/versions
 brew tap homebrew/dupes
 brew tap homebrew/completions
 brew tap ravenac95/sudolikeaboss
+brew tap homebrew/command-not-found
 
 # install all required brew packages
 brew update
