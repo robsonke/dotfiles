@@ -10,7 +10,6 @@ brew install bash-completion
 brew install boost
 brew install brew-cask-completion
 brew install camlp4
-brew install cask-repair
 brew install ccat
 brew install clasp
 brew install cloog
@@ -49,7 +48,6 @@ brew install hugo
 brew install icu4c
 brew install isl
 brew install isl@0.12
-brew install itermocil
 brew install jhead
 brew install jpeg
 brew install jq
@@ -96,7 +94,6 @@ brew install ruby
 brew install screen
 brew install sloccount
 brew install socat
-brew install springboot
 brew install sqlite
 brew install sudolikeaboss
 brew install tidy-html5

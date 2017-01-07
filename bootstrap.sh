@@ -5,7 +5,10 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap caskroom/cask
 brew install brew-cask
-brew tap caskroom/versions
+brew tap homebrew/versions
+brew tap homebrew/dupes
+brew tap homebrew/completions
+brew tap ravenac95/sudolikeaboss
 
 # install all required brew packages
 brew update
