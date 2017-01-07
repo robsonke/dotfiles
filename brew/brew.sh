@@ -8,7 +8,9 @@ brew install automake
 brew install bash
 brew install bash-completion
 brew install boost
+brew install brew-cask-completion
 brew install camlp4
+brew install cask-repair
 brew install ccat
 brew install clasp
 brew install cloog
@@ -37,6 +39,7 @@ brew install go
 brew install gofabric8
 brew install gpg-agent
 brew install gradle
+brew install grep
 brew install gringo
 brew install groovy
 brew install highlight
@@ -46,6 +49,7 @@ brew install hugo
 brew install icu4c
 brew install isl
 brew install isl@0.12
+brew install itermocil
 brew install jhead
 brew install jpeg
 brew install jq
@@ -72,12 +76,14 @@ brew install maven
 brew install md5sha1sum
 brew install moreutils
 brew install mpfr
+brew install nmap
 brew install nvm
 brew install ocaml
 brew install ocamlbuild
 brew install oniguruma
 brew install opam
 brew install openshift-cli
+brew install openssh
 brew install openssl
 brew install pcre
 brew install perl
@@ -87,8 +93,12 @@ brew install pth
 brew install python
 brew install readline
 brew install ruby
+brew install screen
 brew install sloccount
+brew install socat
+brew install springboot
 brew install sqlite
+brew install sudolikeaboss
 brew install tidy-html5
 brew install tmux
 brew install unixodbc
@@ -98,6 +108,7 @@ brew install wget
 brew install xhyve
 brew install xz
 brew install z
+brew install zlib
 brew install zsh
 brew install zsh-completions
 brew install zsh-syntax-highlighting
