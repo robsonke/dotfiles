@@ -11,6 +11,7 @@ brew cask install firefox
 brew cask install flux
 brew cask install franz
 brew cask install garmin-express
+brew cask install gimp
 brew cask install go2shell
 brew cask install google-chrome
 brew cask install google-play-music-desktop-player

@@ -53,6 +53,9 @@ function aliases() {
   echo
 }
 
+## angular i18n - export xliffs
+alias xi18n="node_modules/.bin/ng-xi18n -p tsconfig-xi18n.json"
+
 ## Update all software and push to github
 alias update="sh ~/.dotfiles/update.sh"
 

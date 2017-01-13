@@ -18,6 +18,7 @@
     ~/.inputrc: ../macos/inputrc
     ~/.tmux.conf: ../macos/tmux.conf
     ~/.exports: ../macos/exports
+    ~/.ssh/config: ../macos/ssh-config
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

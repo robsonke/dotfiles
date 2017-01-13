@@ -1,0 +1,8 @@
+Host *
+ServerAliveCountMax 3
+ServerAliveInterval 10
+TCPKeepAlive yes
+
+IdentityFile ~/.ssh/private-av56-ssh
+IdentityFile ~/.ssh/private-cluster-ssh
+AddKeysToAgent yes
