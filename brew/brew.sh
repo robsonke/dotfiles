@@ -1,4 +1,5 @@
 brew install ack
+brew install adns
 brew install android-sdk
 brew install ant
 brew install archey
@@ -33,7 +34,9 @@ brew install git
 brew install git-lfs
 brew install gmp
 brew install gmp@4
+brew install gnupg
 brew install gnupg2
+brew install gnutls
 brew install go
 brew install gofabric8
 brew install gpg-agent
@@ -55,6 +58,7 @@ brew install kubernetes-cli
 brew install libassuan
 brew install libev
 brew install libevent
+brew install libffi
 brew install libgcrypt
 brew install libgpg-error
 brew install libidn
@@ -62,19 +66,26 @@ brew install libksba
 brew install libmpc
 brew install libpng
 brew install libsass
+brew install libtasn1
 brew install libtool
+brew install libunistring
 brew install libusb
 brew install libusb-compat
 brew install libxml2
 brew install libyaml
+brew install logstash
 brew install lua
+brew install m-cli
 brew install mackup
 brew install mas
 brew install maven
 brew install md5sha1sum
 brew install moreutils
 brew install mpfr
+brew install nettle
 brew install nmap
+brew install node
+brew install npth
 brew install nvm
 brew install ocaml
 brew install ocamlbuild
@@ -83,6 +94,7 @@ brew install opam
 brew install openshift-cli
 brew install openssh
 brew install openssl
+brew install p11-kit
 brew install pcre
 brew install perl
 brew install pinentry
@@ -104,6 +116,7 @@ brew install vim
 brew install wget
 brew install xhyve
 brew install xz
+brew install yarn
 brew install z
 brew install zlib
 brew install zsh

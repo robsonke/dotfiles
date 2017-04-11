@@ -6,3 +6,4 @@ TCPKeepAlive yes
 IdentityFile ~/.ssh/private-av56-ssh
 IdentityFile ~/.ssh/private-cluster-ssh
 AddKeysToAgent yes
+#UseKeychain yes
