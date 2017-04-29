@@ -19,6 +19,7 @@
     ~/.tmux.conf: ../macos/tmux.conf
     ~/.exports: ../macos/exports
     ~/.ssh/config: ../macos/ssh-config
+    /usr/local/etc/dnsmasq.conf: ../macos/dnsmasq.conf
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
