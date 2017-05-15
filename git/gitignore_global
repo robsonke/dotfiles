@@ -3,10 +3,6 @@
 .lock
 */target
 build.properties
-gradle/wrapper/gradle-wrapper.jar
-gradle/wrapper/gradle-wrapper.properties
-gradlew
-gradlew.bat
 dev-conf
 .Spotlight-V100
 .Trashes
