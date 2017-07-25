@@ -109,6 +109,7 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH=/usr/local/php5/bin:$PATH
 
 # sqlplus
 export PATH=~/Oracle/instantclient_11_2:$PATH
