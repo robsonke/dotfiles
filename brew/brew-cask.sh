@@ -10,6 +10,7 @@ brew cask install bitbar
 brew cask install filezilla
 brew cask install firefox
 brew cask install flux
+brew cask install fman
 brew cask install franz
 brew cask install garmin-express
 brew cask install gimp

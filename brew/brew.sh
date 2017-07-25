@@ -1,6 +1,5 @@
 brew install ack
 brew install adns
-brew install android-sdk
 brew install ant
 brew install archey
 brew install aspcud
@@ -15,6 +14,7 @@ brew install ccat
 brew install clasp
 brew install cloog
 brew install cmake
+brew install composer
 brew install coreutils
 brew install cscope
 brew install diff-so-fancy
