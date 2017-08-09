@@ -1,7 +1,10 @@
 " Use the Solarized Dark theme
 set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+"colorscheme solarized
+colorscheme one-dark
+set background=dark
+let g:airline_theme='one'
+"let g:solarized_termtrans=1
 
 "---------------------------------------------------------------------------
 " Make Vim more useful
@@ -29,6 +32,7 @@ Plugin 'ervandew/supertab'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rakr/vim-one'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -137,7 +141,7 @@ let g:airline_powerline_fonts = 1
 " Enable smarter tab support
 let g:airline#extensions#tabline#enabled = 1
 " Set the solarized dark theme
-let g:airline_theme='solarized'
+"let g:airline_theme='solarized'
 
 
 " Strip trailing whitespace (,ss)
