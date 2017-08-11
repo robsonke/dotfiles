@@ -94,9 +94,11 @@ brew install opam
 brew install openshift-cli
 brew install openssh
 brew install openssl
+brew install openssl@1.1
 brew install p11-kit
 brew install pcre
 brew install perl
+brew install php71
 brew install pinentry
 brew install pkg-config
 brew install pth
