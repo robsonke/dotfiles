@@ -6,9 +6,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme one
-set background=dark
-let g:airline_theme='one'
+let g:airline_theme='onedark'
+colorscheme onedark
 
 "---------------------------------------------------------------------------
 " Make Vim more useful
@@ -36,7 +35,8 @@ Plugin 'ervandew/supertab'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'rakr/vim-one'
+Plugin 'joshdick/onedark.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
