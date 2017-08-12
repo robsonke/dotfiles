@@ -22,10 +22,20 @@ plugins=(docker osx brew gradle tmux zsh-syntax-highlighting zsh-iterm-touchbar 
 # User configuration
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time os_icon)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time battery os_icon)
 POWERLEVEL9K_OS_ICON_BACKGROUND="white"
 POWERLEVEL9K_OS_ICON_FOREGROUND="black"
 POWERLEVEL9K_MODE='nerdfont-complete'
+
+#POWERLEVEL9K_BATTERY_CHARGING='yellow'
+#POWERLEVEL9K_BATTERY_CHARGED='green'
+#POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
+#POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
+#POWERLEVEL9K_BATTERY_LOW_COLOR='red'
+POWERLEVEL9K_BATTERY_ICON='\e708'
+POWERLEVEL9K_TIME_FORMAT="%D{\uf017  %H:%M:%S \uf073 %d/%m/%Y} \UE12E"
+POWERLEVEL9K_STATUS_VERBOSE="true"
+
 
 # This disables the robsonke@macbook prefix in prompts
 DEFAULT_USER="robsonke"
