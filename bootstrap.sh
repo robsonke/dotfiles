@@ -19,9 +19,6 @@ sh brew/brew.sh
 sh brew/brew-cask.sh
 brew cleanup
 
-# n - node version management
-npm install -g n
-
 # create some default vim folders
 mkdir -p ~/.vim/swaps
 mkdir -p ~/.vim/backups

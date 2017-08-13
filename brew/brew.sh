@@ -82,6 +82,7 @@ brew install maven
 brew install md5sha1sum
 brew install moreutils
 brew install mpfr
+brew install n
 brew install nettle
 brew install nmap
 brew install node
