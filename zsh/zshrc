@@ -27,14 +27,17 @@ POWERLEVEL9K_OS_ICON_BACKGROUND="white"
 POWERLEVEL9K_OS_ICON_FOREGROUND="black"
 POWERLEVEL9K_MODE='nerdfont-complete'
 
-#POWERLEVEL9K_BATTERY_CHARGING='yellow'
-#POWERLEVEL9K_BATTERY_CHARGED='green'
-#POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
-#POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
-#POWERLEVEL9K_BATTERY_LOW_COLOR='red'
-POWERLEVEL9K_BATTERY_ICON='\e708'
-POWERLEVEL9K_TIME_FORMAT="%D{\uf017  %H:%M:%S \uf073 %d/%m/%Y} \UE12E"
-POWERLEVEL9K_STATUS_VERBOSE="true"
+POWERLEVEL9K_BATTERY_CHARGING='yellow'
+POWERLEVEL9K_BATTERY_CHARGED='green'
+POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
+POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
+POWERLEVEL9K_BATTERY_LOW_COLOR='red'
+POWERLEVEL9K_BATTERY_ICON='\uf1e6'
+POWERLEVEL9K_BATTERY_LOW_BACKGROUND="240"
+POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="240"
+POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="240"
+POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="240"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uf017 %d-%m \uf073}"
 
 
 # This disables the robsonke@macbook prefix in prompts
@@ -51,32 +54,6 @@ for file in ~/.{aliases,exports,functions}; do
 done
 unset file
 
-# makes opening new sessions slow but can't have both (yet)
-# see: https://github.com/creationix/nvm/issues/860
-export NVM_DIR="$HOME/.nvm"
-source /usr/local/opt/nvm/nvm.sh
-nvm use 6
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 #################################
 
 # give suggestions for missing utils
