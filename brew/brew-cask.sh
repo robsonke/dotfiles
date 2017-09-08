@@ -29,6 +29,7 @@ brew cask install launchcontrol
 brew cask install mamp
 brew cask install minishift
 brew cask install moeditor
+brew cask install near-lock
 brew cask install postman
 brew cask install qlcolorcode
 brew cask install sequel-pro

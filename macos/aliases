@@ -18,6 +18,12 @@ alias la="ls -ltrhaF ${colorflag}"
 ## Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 
+## List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+## quick gotos
+alias msrc="cd ~/maxxton/sources/mxt2/services"
+
 ## Use colorized cat (ccat) instead of normal cat
 alias cat=ccat
 
@@ -46,6 +52,12 @@ alias restartdns="sudo launchctl stop homebrew.mxcl.dnsmasq; sudo launchctl star
 
 ## Reset the Homebrew Git repository back to master
 alias brew_reset="cd $(brew --repository) && git fetch && git reset --hard origin/master && git pull"
+
+## Login on the dev Openshift cluster
+alias oclogindev="oc login -u=mx-rsonke https://openshift-dev.maxxton.com:8443"
+
+## Login on the prod Openshift cluster
+alias ocloginprod="oc login -u=mx-rsonke https://mxt-ocmaster.newyse.maxxton:8443"
 
 ### Utility Functions
 
