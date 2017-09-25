@@ -75,20 +75,26 @@ alias xi18n="node_modules/.bin/ng-xi18n -p tsconfig-xi18n.json"
 alias update="sh ~/.dotfiles/update.sh"
 
 ## Switch between all installed JDK versions, e.g. setjdk 8
-function setjdk() (
+function setjdk() {
   removeFromPath() {
     export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
   }
 
   if [ $# -ne 0 ]; then
-   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
-   if [ -n "${JAVA_HOME+x}" ]; then
-    removeFromPath $JAVA_HOME
-   fi
-   export JAVA_HOME=`/usr/libexec/java_home -v 1.$@`
-   export PATH=$JAVA_HOME/bin:$PATH
+    removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+    if [ -n "${JAVA_HOME+x}" ]; then
+      removeFromPath $JAVA_HOME
+    fi
+   
+    if [ $@ = 9 ]; then
+      export JAVA_HOME="`/usr/libexec/java_home -v $@`"
+    else
+      export JAVA_HOME="`/usr/libexec/java_home -v 1.$@`"
+    fi
+    echo Setting JAVA_HOME to $JAVA_HOME
+    export PATH="$JAVA_HOME/bin:$PATH"
   fi
-)
+}
 
 # Given a collection of image files, this function will resize
 # the images in the current folder and saves them in the subfolder resized
