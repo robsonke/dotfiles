@@ -1,9 +1,17 @@
-Host *
-ServerAliveCountMax 3
-ServerAliveInterval 10
-TCPKeepAlive yes
+Host av56.nl
+  ServerAliveCountMax 3
+  ServerAliveInterval 10
+  TCPKeepAlive yes
 
-IdentityFile ~/.ssh/private-av56-ssh
-IdentityFile ~/.ssh/private-cluster-ssh
-AddKeysToAgent yes
-#UseKeychain yes
+  IdentityFile ~/.ssh/private-av56-ssh
+  AddKeysToAgent yes
+#  UseKeychain yes
+
+Host *
+  ServerAliveCountMax 3
+  ServerAliveInterval 10
+  TCPKeepAlive yes
+
+  IdentityFile ~/.ssh/private-cluster-ssh
+  AddKeysToAgent yes
+#  UseKeychain yes
