@@ -18,6 +18,7 @@ brew cask install gimp
 brew cask install go2shell
 brew cask install google-chrome
 brew cask install google-play-music-desktop-player
+brew cask install grammarly
 brew cask install hyperswitch
 brew cask install istat-menus
 brew cask install iterm2
@@ -48,5 +49,6 @@ brew cask install the-unarchiver
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install virtualbox
+brew cask install visual-studio-code
 brew cask install vlc
 brew cask install vox
