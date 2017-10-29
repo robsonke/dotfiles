@@ -37,9 +37,11 @@ brew cask install shimo
 brew cask install slack
 brew cask install soapui
 brew cask install soundnode
+brew cask install soundsource
 brew cask install sourcetree
 brew cask install spectacle
 brew cask install spotify
+brew cask install stay
 brew cask install sublime-text
 brew cask install teamviewer
 brew cask install the-unarchiver
