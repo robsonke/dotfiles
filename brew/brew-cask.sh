@@ -1,5 +1,6 @@
 brew cask install 1password
 brew cask install airfoil
+brew cask install airmail-beta
 brew cask install alfred
 brew cask install android-sdk
 brew cask install atom
@@ -52,3 +53,4 @@ brew cask install virtualbox
 brew cask install visual-studio-code
 brew cask install vlc
 brew cask install vox
+brew cask install whatsapp

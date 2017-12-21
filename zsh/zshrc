@@ -39,6 +39,7 @@ POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="240"
 POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="240"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uf017 %d-%m \uf073}"
 
+export TERM="xterm-256color"
 
 # This disables the robsonke@macbook prefix in prompts
 DEFAULT_USER="robsonke"

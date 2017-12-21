@@ -12,6 +12,7 @@ brew install brew-cask-completion
 brew install camlp4
 brew install ccat
 brew install clasp
+brew install clingo
 brew install cloog
 brew install cmake
 brew install composer
@@ -62,6 +63,7 @@ brew install libffi
 brew install libgcrypt
 brew install libgpg-error
 brew install libidn
+brew install libidn2
 brew install libksba
 brew install libmpc
 brew install libpng
@@ -111,6 +113,7 @@ brew install sloccount
 brew install socat
 brew install sqlite
 brew install sudolikeaboss
+brew install telnet
 brew install tidy-html5
 brew install tmux
 brew install unixodbc
