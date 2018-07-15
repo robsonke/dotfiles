@@ -6,8 +6,10 @@ brew cask install android-sdk
 brew cask install atom
 brew cask install avibrazil-rdm
 brew cask install bartender
+brew cask install beardedspice
 brew cask install betterzipql
 brew cask install bitbar
+brew cask install castbridge
 brew cask install filezilla
 brew cask install firefox
 brew cask install flux
@@ -38,6 +40,7 @@ brew cask install sequel-pro
 brew cask install shimo
 brew cask install slack
 brew cask install soapui
+brew cask install soundcleod
 brew cask install soundnode
 brew cask install soundsource
 brew cask install sourcetree

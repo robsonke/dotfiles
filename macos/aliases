@@ -105,11 +105,11 @@ function setjdk() {
 ## Resize and rename images in the current directory and writes them to a resized subfolder
 function resize-images() {
   read "filename?What would you like the filename to be started with? []: "
-  read "width?What max width in pixels would you like your images? [1024]: "
-  read "height?What max height in pixels would you like your images? [768]: "
+  read "width?What max width in pixels would you like your images? [1280]: "
+  read "height?What max height in pixels would you like your images? [960]: "
 
-  width=${width:-1024}
-  height=${height:-768}
+  width=${width:-1280}
+  height=${height:-960}
 
   echo
   echo "All images will be renamed to $filename-xx.jpg with a maximum resolution of $width x $height pixels."

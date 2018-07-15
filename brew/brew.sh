@@ -1,8 +1,11 @@
 brew install ack
 brew install adns
 brew install ant
+brew install apr
+brew install apr-util
 brew install archey
 brew install aspcud
+brew install aspell
 brew install autoconf
 brew install automake
 brew install bash
@@ -28,11 +31,13 @@ brew install dos2unix
 brew install doxygen
 brew install editorconfig
 brew install findutils
+brew install freetds
 brew install freetype
 brew install gdbm
 brew install gettext
 brew install git
 brew install git-lfs
+brew install glib
 brew install gmp
 brew install gmp@4
 brew install gnupg
@@ -67,6 +72,7 @@ brew install libidn2
 brew install libksba
 brew install libmpc
 brew install libpng
+brew install libpq
 brew install libsass
 brew install libtasn1
 brew install libtool
@@ -75,13 +81,16 @@ brew install libusb
 brew install libusb-compat
 brew install libxml2
 brew install libyaml
+brew install libzip
 brew install logstash
 brew install lua
 brew install m-cli
 brew install mackup
 brew install mas
 brew install maven
+brew install mcrypt
 brew install md5sha1sum
+brew install mhash
 brew install moreutils
 brew install mpfr
 brew install n
@@ -101,7 +110,9 @@ brew install openssl@1.1
 brew install p11-kit
 brew install pcre
 brew install perl
+brew install php-code-sniffer
 brew install php71
+brew install php@7.1
 brew install pinentry
 brew install pkg-config
 brew install pth
@@ -111,6 +122,7 @@ brew install ruby
 brew install screen
 brew install sloccount
 brew install socat
+brew install sphinx-doc
 brew install sqlite
 brew install sudolikeaboss
 brew install telnet
@@ -119,6 +131,7 @@ brew install tmux
 brew install unixodbc
 brew install utf8proc
 brew install vim
+brew install webp
 brew install wget
 brew install xhyve
 brew install xz
