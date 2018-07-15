@@ -5,6 +5,7 @@ brew cask install alfred
 brew cask install android-sdk
 brew cask install atom
 brew cask install avibrazil-rdm
+brew cask install background-music
 brew cask install bartender
 brew cask install beardedspice
 brew cask install betterzipql
@@ -20,6 +21,7 @@ brew cask install garmin-express
 brew cask install gimp
 brew cask install go2shell
 brew cask install google-chrome
+brew cask install google-cloud-sdk
 brew cask install google-play-music-desktop-player
 brew cask install grammarly
 brew cask install hyperswitch
@@ -29,11 +31,14 @@ brew cask install iterm2-beta
 brew cask install java
 brew cask install jumpshare
 brew cask install keepassx
+brew cask install keepingyouawake
 brew cask install launchcontrol
 brew cask install mamp
 brew cask install minishift
 brew cask install moeditor
 brew cask install near-lock
+brew cask install nomad
+brew cask install pgadmin4
 brew cask install postman
 brew cask install qlcolorcode
 brew cask install sequel-pro
