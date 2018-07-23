@@ -1,6 +1,5 @@
 brew cask install 1password
 brew cask install airfoil
-brew cask install airmail-beta
 brew cask install alfred
 brew cask install android-sdk
 brew cask install atom
@@ -12,10 +11,7 @@ brew cask install bitbar
 brew cask install castbridge
 brew cask install filezilla
 brew cask install firefox
-brew cask install flux
-brew cask install fman
 brew cask install font-hack-nerd-font
-brew cask install franz
 brew cask install garmin-express
 brew cask install gimp
 brew cask install go2shell
@@ -24,7 +20,6 @@ brew cask install google-play-music-desktop-player
 brew cask install grammarly
 brew cask install hyperswitch
 brew cask install istat-menus
-brew cask install iterm2
 brew cask install iterm2-beta
 brew cask install java
 brew cask install jumpshare
