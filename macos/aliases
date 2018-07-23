@@ -59,11 +59,20 @@ alias oclogindev="oc login -u=mx-rsonke https://openshift-dev.maxxton.com:8443"
 ## Login on the prod Openshift cluster
 alias ocloginprod="oc login -u=mx-rsonke https://mxt-ocmaster.newyse.maxxton:8443"
 
+
+
+### Kubectl Kubernetes shortcodes
 ## Kubectl cli shortcode
 alias kc='kubectl'
 
 ## Get a token to use the gce api
 alias kubetoken='gcloud config config-helper --format=json'
+
+## Short for executing kubectl exec and jump into the running container
+function kcexec() { kc exec -it $1 bash }
+
+# Source all extra aliases with sensitive info which we don't want in Git
+source $HOME/Dropbox/Maxxton/extra_aliases
 
 
 ### Utility Functions
@@ -105,7 +114,7 @@ function setjdk() {
     else
       export JAVA_HOME="`/usr/libexec/java_home -v 1.$@`"
     fi
-    echo Setting JAVA_HOME to $JAVA_HOME
+#echo Setting JAVA_HOME to $JAVA_HOME
     export PATH="$JAVA_HOME/bin:$PATH"
   fi
 }
