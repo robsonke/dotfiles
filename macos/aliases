@@ -59,6 +59,13 @@ alias oclogindev="oc login -u=mx-rsonke https://openshift-dev.maxxton.com:8443"
 ## Login on the prod Openshift cluster
 alias ocloginprod="oc login -u=mx-rsonke https://mxt-ocmaster.newyse.maxxton:8443"
 
+## Kubectl cli shortcode
+alias kc='kubectl'
+
+## Get a token to use the gce api
+alias kubetoken='gcloud config config-helper --format=json'
+
+
 ### Utility Functions
 
 ## The function you just used
@@ -73,6 +80,13 @@ alias xi18n="node_modules/.bin/ng-xi18n -p tsconfig-xi18n.json"
 
 ## Update all software and push to github
 alias update="sh ~/.dotfiles/update.sh"
+
+## Kill all processes matching this name
+function killit() {
+  procs=$(ps aux | grep $@ | grep -v grep | awk '{print $2}')
+  echo 'killing $procs'
+  kill -9 $procs
+}
 
 ## Switch between all installed JDK versions, e.g. setjdk 8
 function setjdk() {

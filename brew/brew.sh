@@ -33,6 +33,8 @@ brew install editorconfig
 brew install findutils
 brew install freetds
 brew install freetype
+brew install fzf
+brew install gdb
 brew install gdbm
 brew install gettext
 brew install git
@@ -60,7 +62,10 @@ brew install isl@0.12
 brew install jhead
 brew install jpeg
 brew install jq
+brew install kns
+brew install kubectx
 brew install kubernetes-cli
+brew install lftp
 brew install libassuan
 brew install libev
 brew install libevent
