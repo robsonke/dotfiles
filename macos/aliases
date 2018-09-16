@@ -101,7 +101,7 @@ function setjdk() {
     if [ -n "${JAVA_HOME+x}" ]; then
       removeFromPath $JAVA_HOME
     fi
-   
+
     if [ $@ = 9 ] || [ $@ = 10 ]; then
       export JAVA_HOME="`/usr/libexec/java_home -v $@`"
     else
