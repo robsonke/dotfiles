@@ -53,13 +53,6 @@ alias restartdns="sudo launchctl stop homebrew.mxcl.dnsmasq; sudo launchctl star
 ## Reset the Homebrew Git repository back to master
 alias brew_reset="cd $(brew --repository) && git fetch && git reset --hard origin/master && git pull"
 
-## Login on the dev Openshift cluster
-alias oclogindev="oc login -u=mx-rsonke https://openshift-dev.maxxton.com:8443"
-
-## Login on the prod Openshift cluster
-alias ocloginprod="oc login -u=mx-rsonke https://mxt-ocmaster.newyse.maxxton:8443"
-
-
 
 ### Kubectl Kubernetes shortcodes
 ## Kubectl cli shortcode
@@ -109,7 +102,7 @@ function setjdk() {
       removeFromPath $JAVA_HOME
     fi
    
-    if [ $@ = 9 ]; then
+    if [ $@ = 9 ] || [ $@ = 10 ]; then
       export JAVA_HOME="`/usr/libexec/java_home -v $@`"
     else
       export JAVA_HOME="`/usr/libexec/java_home -v 1.$@`"

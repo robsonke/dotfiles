@@ -1,5 +1,13 @@
 #set -x
 
+# Trace performance of zsh
+zmodload zsh/zprof
+# Then do: env ZSH_PROF= zsh -ic zprof
+# This might help too:
+# sudo rm -rf /private/var/log/asl/*.asl
+# Also removing ~/.zcompdump* files might help
+
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -15,17 +23,36 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
-plugins=(docker osx brew gradle tmux zsh-iterm-touchbar oc zsh-syntax-highlighting)
-
+plugins=(docker osx brew gradle oc zsh-syntax-highlighting kubecontext)
+#plugins=()
 
 ##############################################################################################
 # User configuration
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+#KUBE_PS1_BG_COLOR='black'
+KUBE_PS1_PREFIX=
+KUBE_PS1_SEPARATOR=
+KUBE_PS1_SUFFIX=
+KUBE_PS1_SYMBOL_COLOR='black'
+KUBE_PS1_CTX_COLOR='black'
+KUBE_PS1_NS_COLOR='black'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+DISABLE_UPDATE_PROMPT=true
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir custom_kubens dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time battery os_icon)
+
+POWERLEVEL9K_CUSTOM_KUBENS="kubectl_prompt"
+POWERLEVEL9K_CUSTOM_KUBENS_BACKGROUND="blue"
 POWERLEVEL9K_OS_ICON_BACKGROUND="white"
 POWERLEVEL9K_OS_ICON_FOREGROUND="black"
 POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+#POWERLEVEL9K_SHORTEN_DELIMITER=".."
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{white}"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%F{white} "
 
 POWERLEVEL9K_BATTERY_CHARGING='yellow'
 POWERLEVEL9K_BATTERY_CHARGED='green'
@@ -62,7 +89,7 @@ unset file
 #################################
 
 # give suggestions for missing utils
-if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
+#if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
 
 # and maybe load some overrides from the custom folder
 for file in ~/.dotfiles/custom/*; do
@@ -87,15 +114,25 @@ if [ $? -eq 0 ]; then
 fi;
 
 # Android sdk
-export ANDROID_HOME=/usr/local/opt/android-sdk
+#export ANDROID_HOME=/usr/local/opt/android-sdk
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH=/usr/local/php5/bin:$PATH
 
 # sqlplus
-export PATH=~/Oracle/instantclient_11_2:$PATH
+export PATH=~/oracle/instantclient_12_2:$PATH
+
 
 # initiate nice looking ls colors
 eval `gdircolors ~/.dircolors`
+
+
+#setopt extendedglob
+#if [[ -n "${ZSH_COMPDUMP}"(#qN.mh+24) ]]; then
+#  compinit -i -d "${ZSH_COMPDUMP}"
+#  compdump
+#else
+#  compinit -C
+#fi

@@ -9,6 +9,7 @@ brew cask install bartender
 brew cask install beardedspice
 brew cask install betterzipql
 brew cask install bitbar
+brew cask install bitwarden
 brew cask install castbridge
 brew cask install filezilla
 brew cask install firefox
@@ -19,6 +20,7 @@ brew cask install go2shell
 brew cask install google-chrome
 brew cask install google-cloud-sdk
 brew cask install google-play-music-desktop-player
+brew cask install gpg-suite
 brew cask install grammarly
 brew cask install hyperswitch
 brew cask install istat-menus
@@ -33,9 +35,11 @@ brew cask install minishift
 brew cask install moeditor
 brew cask install near-lock
 brew cask install nomad
+brew cask install osxfuse
 brew cask install pgadmin4
 brew cask install postman
 brew cask install qlcolorcode
+brew cask install robo-3t
 brew cask install sequel-pro
 brew cask install shimo
 brew cask install slack

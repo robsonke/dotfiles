@@ -143,6 +143,12 @@ log_info() {
   echo "****************************************************************************\n"
 }
 
+kubectl_prompt() {
+  KUBE_NS=$(kubectl config view --minify --output 'jsonpath={..namespace}')
+  KUBE_ICON="\u2388"
+  echo "${KUBE_ICON} ${KUBE_NS}"
+}
+
 # End of brew functions
 ########################################################################################################
 

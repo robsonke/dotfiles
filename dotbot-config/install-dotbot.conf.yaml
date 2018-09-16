@@ -10,14 +10,11 @@
     ~/.oh-my-zsh: ../zsh/oh-my-zsh
     ~/.mackup.cfg: ../macos/mackup.cfg
     ~/.iterm2_shell_integration.zsh: ../zsh/iterm2_shell_integration.zsh
-    ~/.gitconfig: ../git/gitconfig
-    ~/.gitignore_global: ../git/gitignore_global
     ~/.stCommitMsg: ../git/stCommitMsg
     ~/.dircolors: ../macos/dircolors
     ~/.inputrc: ../macos/inputrc
     ~/.tmux.conf: ../macos/tmux.conf
     ~/.exports: ../macos/exports
-    ~/.ssh/config: ../macos/ssh-config
     /usr/local/etc/dnsmasq.conf: ../macos/dnsmasq.conf
 
 - shell:

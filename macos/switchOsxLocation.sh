@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 #######################################################
 ## Simple bash script to change OSX network location ##
@@ -8,9 +8,9 @@
 #######################################################
 
 # Constants defining the situation
-HOME_WIFI='sonkeberks'
+HOME_WIFI='SONKEBERKS'
 WORK_WIFI='MXTHQ'
-PUNE_WIFI='Maxxton'
+PUNE_WIFI='MAXXTON'
 HOME_LOCATION='Home'
 WORK_LOCATION='Office'
 PUNE_LOCATION='Pune'
@@ -23,6 +23,9 @@ CURRENT_LOCATION="$(networksetup -getcurrentlocation)"
 WIFI_STRING="$(networksetup -getairportnetwork $WIFI_DEV)"
 
 echo 'Current wifi: '$WIFI_NAME
+
+# to uppercase
+WIFI_NAME=$(echo "$WIFI_NAME" | tr '[:lower:]'  '[:upper:]')
 
 # Check if we are on a wifi network
 if [[ $WIFI_STRING == 'Current Wi'* ]]
@@ -45,7 +48,7 @@ then
       osascript -e 'display notification "Rise and shine, a new working day has started." with title "Switched to location Office"'
       exit
     fi
-  elif [[ "$WIFI_NAME" == $PUNE_WIFI* ]]
+  elif [[ ${WIFI_NAME} == ${PUNE_WIFI}* ]]
   then
     if [ $CURRENT_LOCATION != $PUNE_LOCATION ]
     then

@@ -29,15 +29,6 @@ brew doctor
 brew_install_missing
 brew_cask_install_missing
 
-# Update npm & packages
-nvm install 5
-nvm install 6
-nvm install 7
-log_info "Update NPM packages"
-npm set registry https://npm.maxxton.com
-npm install npm -g
-npm update -g
-
 # update Ruby & gems
 log_info "Update Gems"
 sudo gem update —system

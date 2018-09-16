@@ -57,14 +57,17 @@ brew install hr
 brew install hub
 brew install hugo
 brew install icu4c
+brew install instantclient-basic
 brew install isl
 brew install isl@0.12
 brew install jhead
 brew install jpeg
 brew install jq
 brew install kns
+brew install kube-ps1
 brew install kubectx
 brew install kubernetes-cli
+brew install kubernetes-helm
 brew install lftp
 brew install libassuan
 brew install libev
@@ -96,6 +99,7 @@ brew install maven
 brew install mcrypt
 brew install md5sha1sum
 brew install mhash
+brew install mongodb
 brew install moreutils
 brew install mpfr
 brew install n
@@ -114,6 +118,7 @@ brew install openssl
 brew install openssl@1.1
 brew install p11-kit
 brew install pcre
+brew install pcre2
 brew install perl
 brew install php-code-sniffer
 brew install php71
@@ -122,6 +127,7 @@ brew install pinentry
 brew install pkg-config
 brew install pth
 brew install python
+brew install python@2
 brew install readline
 brew install ruby
 brew install screen
@@ -129,10 +135,13 @@ brew install sloccount
 brew install socat
 brew install sphinx-doc
 brew install sqlite
+brew install sshfs
 brew install sudolikeaboss
+brew install telepresence
 brew install telnet
 brew install tidy-html5
 brew install tmux
+brew install torsocks
 brew install unixodbc
 brew install utf8proc
 brew install vim
