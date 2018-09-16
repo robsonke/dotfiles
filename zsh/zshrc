@@ -28,15 +28,6 @@ plugins=(docker osx brew gradle oc zsh-syntax-highlighting kubecontext)
 
 ##############################################################################################
 # User configuration
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-#KUBE_PS1_BG_COLOR='black'
-KUBE_PS1_PREFIX=
-KUBE_PS1_SEPARATOR=
-KUBE_PS1_SUFFIX=
-KUBE_PS1_SYMBOL_COLOR='black'
-KUBE_PS1_CTX_COLOR='black'
-KUBE_PS1_NS_COLOR='black'
-
 DISABLE_UPDATE_PROMPT=true
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir custom_kubens dir_writable vcs)

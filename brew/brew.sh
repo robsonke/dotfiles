@@ -64,7 +64,6 @@ brew install jhead
 brew install jpeg
 brew install jq
 brew install kns
-brew install kube-ps1
 brew install kubectx
 brew install kubernetes-cli
 brew install kubernetes-helm
