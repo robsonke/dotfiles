@@ -34,6 +34,9 @@ log_info "Update Gems"
 sudo gem update —system
 sudo gem update
 
+# update vim plugins
+curl https://j.mp/spf13-vim3 -L -o - | sh
+
 # and update my brew and cask install file with latest list
 log_info "Update brew and cask install files"
 brew list | sed 's/^/brew install /' > brew/brew.sh

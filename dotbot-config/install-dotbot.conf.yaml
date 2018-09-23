@@ -2,8 +2,6 @@
 
 - link:
     ~/.hushlogin: ../macos/hushlogin
-    ~/.vimrc: ../vim/vimrc
-    ~/.vim: ../vim/vim
     ~/.zshrc: ../zsh/zshrc
     ~/.aliases: ../macos/aliases
     ~/.functions: ../macos/functions

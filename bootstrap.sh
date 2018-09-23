@@ -38,12 +38,9 @@ mackup restore
 # set a bunch of default osx settings
 sh macos/macos
 
-# install Vundle - vim plugin manager
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# install all vim plugins with Vundle
-vim +PluginInstall +qall
-
+# install Vim plus a bunch of other plugins / settings
+# uses https://github.com/spf13/spf13-vim
+curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
 
 # KNOWN MISSING PARTS
 # fonts for oh my zsh agnoster theme
