@@ -8,10 +8,13 @@ brew install aspcud
 brew install aspell
 brew install autoconf
 brew install automake
+brew install awscli
 brew install bash
 brew install bash-completion
 brew install boost
 brew install brew-cask-completion
+brew install brotli
+brew install c-ares
 brew install camlp4
 brew install ccat
 brew install clasp
@@ -21,6 +24,7 @@ brew install cmake
 brew install composer
 brew install coreutils
 brew install cscope
+brew install curl-openssl
 brew install diff-so-fancy
 brew install dirmngr
 brew install dnsmasq
@@ -54,12 +58,16 @@ brew install gringo
 brew install groovy
 brew install highlight
 brew install hr
+brew install html2text
+brew install httpie
 brew install hub
 brew install hugo
 brew install icu4c
 brew install instantclient-basic
 brew install isl
 brew install isl@0.12
+brew install jansson
+brew install jemalloc
 brew install jhead
 brew install jpeg
 brew install jq
@@ -74,6 +82,7 @@ brew install libevent
 brew install libffi
 brew install libgcrypt
 brew install libgpg-error
+brew install libiconv
 brew install libidn
 brew install libidn2
 brew install libksba
@@ -102,7 +111,9 @@ brew install mongodb
 brew install moreutils
 brew install mpfr
 brew install n
+brew install ncurses
 brew install nettle
+brew install nghttp2
 brew install nmap
 brew install node
 brew install npth
@@ -111,6 +122,7 @@ brew install ocaml
 brew install ocamlbuild
 brew install oniguruma
 brew install opam
+brew install openldap
 brew install openshift-cli
 brew install openssh
 brew install openssl
@@ -138,9 +150,11 @@ brew install sshfs
 brew install sudolikeaboss
 brew install telepresence
 brew install telnet
+brew install terminal-notifier
 brew install tidy-html5
 brew install tmux
 brew install torsocks
+brew install tree
 brew install unixodbc
 brew install utf8proc
 brew install vim

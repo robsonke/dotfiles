@@ -9,6 +9,10 @@ alias psn='ps ax | grep -i node'
 ## Quick process grep alias
 alias psg='ps ax | grep'
 
+## Find PID of running process on port
+findport() { lsof -t -i :$1; }
+killport() { kill -9 "$(lsof -t -i :$1)"; }
+
 ## List all files colorized in long format
 alias ll="ls -ltrhF ${colorflag}"
 
