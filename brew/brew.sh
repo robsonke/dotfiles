@@ -1,5 +1,6 @@
 brew install ack
 brew install adns
+brew install angular-cli
 brew install ant
 brew install apr
 brew install apr-util
@@ -86,10 +87,12 @@ brew install libiconv
 brew install libidn
 brew install libidn2
 brew install libksba
+brew install libmetalink
 brew install libmpc
 brew install libpng
 brew install libpq
 brew install libsass
+brew install libssh2
 brew install libtasn1
 brew install libtool
 brew install libunistring
@@ -140,6 +143,7 @@ brew install pth
 brew install python
 brew install python@2
 brew install readline
+brew install rtmpdump
 brew install ruby
 brew install screen
 brew install sloccount
@@ -151,10 +155,13 @@ brew install sudolikeaboss
 brew install telepresence
 brew install telnet
 brew install terminal-notifier
+brew install thefuck
 brew install tidy-html5
 brew install tmux
 brew install torsocks
+brew install trash
 brew install tree
+brew install unbound
 brew install unixodbc
 brew install utf8proc
 brew install vim

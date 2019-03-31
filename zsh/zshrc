@@ -96,6 +96,8 @@ setjdk 8
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+eval $(thefuck --alias)
+
 # Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
