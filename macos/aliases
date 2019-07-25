@@ -66,7 +66,7 @@ alias kc='kubectl'
 alias kubetoken='gcloud config config-helper --format=json'
 
 ## Short for executing kubectl exec and jump into the running container
-function kcexec() { kc exec -it $1 bash }
+function kcexec() { kc exec -it $1 sh }
 
 # Source all extra aliases with sensitive info which we don't want in Git
 source $HOME/Dropbox/Maxxton/extra_aliases
@@ -205,7 +205,8 @@ alias docsrm='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 ## Remove all Docker images
 function drmiall() { docker rmi $(docker images -q); }
 
-
+## Clears all non running images/volumes/containers
+alias dprune='docker system prune -a --volumes'
 
 #------------------------------------------------------------------------------------------------------------------------------
 # this below code is used to document aliases

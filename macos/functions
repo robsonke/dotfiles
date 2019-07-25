@@ -145,8 +145,9 @@ log_info() {
 
 kubectl_prompt() {
   KUBE_NS=$(kubectl config view --minify --output 'jsonpath={..namespace}')
+  KUBE_CTX=$(kubectl config current-context)
   KUBE_ICON="\u2388"
-  echo "${KUBE_ICON} ${KUBE_NS}"
+  echo "${KUBE_ICON} ${KUBE_CTX} - ${KUBE_NS}"
 }
 
 # End of brew functions
