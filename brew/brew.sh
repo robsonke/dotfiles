@@ -7,6 +7,7 @@ brew install apr-util
 brew install archey
 brew install aspcud
 brew install aspell
+brew install atlassian-plugin-sdk
 brew install autoconf
 brew install automake
 brew install awscli
@@ -76,6 +77,7 @@ brew install kns
 brew install kubectx
 brew install kubernetes-cli
 brew install kubernetes-helm
+brew install ldns
 brew install lftp
 brew install libassuan
 brew install libev
@@ -89,11 +91,13 @@ brew install libidn2
 brew install libksba
 brew install libmetalink
 brew install libmpc
+brew install libnet
 brew install libpng
 brew install libpq
 brew install libsass
 brew install libssh2
 brew install libtasn1
+brew install libtiff
 brew install libtool
 brew install libunistring
 brew install libusb
@@ -120,6 +124,7 @@ brew install nghttp2
 brew install nmap
 brew install node
 brew install npth
+brew install ntfs-3g
 brew install nvm
 brew install ocaml
 brew install ocamlbuild
@@ -142,7 +147,9 @@ brew install pkg-config
 brew install pth
 brew install python
 brew install python@2
+brew install q
 brew install readline
+brew install restic
 brew install rtmpdump
 brew install ruby
 brew install screen
@@ -152,9 +159,12 @@ brew install sphinx-doc
 brew install sqlite
 brew install sshfs
 brew install sudolikeaboss
+brew install tcptraceroute
 brew install telepresence
 brew install telnet
 brew install terminal-notifier
+brew install terraform
+brew install tfswitch
 brew install thefuck
 brew install tidy-html5
 brew install tmux

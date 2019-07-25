@@ -30,6 +30,7 @@ brew cask install launchcontrol
 brew cask install mamp
 brew cask install minishift
 brew cask install moeditor
+brew cask install mounty
 brew cask install osxfuse
 brew cask install pgadmin4
 brew cask install postman
