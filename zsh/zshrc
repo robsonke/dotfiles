@@ -16,7 +16,8 @@ export ZSH=~/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -29,18 +30,19 @@ plugins=(docker osx brew gradle oc zsh-syntax-highlighting kubecontext)
 ##############################################################################################
 # User configuration
 DISABLE_UPDATE_PROMPT=true
+DISABLE_UNTRACKED_FILES_DIRTY=true
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir custom_kubens dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time battery os_icon)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir kubecontext dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time battery)
 
-POWERLEVEL9K_CUSTOM_KUBENS="kubectl_prompt"
-POWERLEVEL9K_CUSTOM_KUBENS_BACKGROUND="blue"
 POWERLEVEL9K_OS_ICON_BACKGROUND="white"
 POWERLEVEL9K_OS_ICON_FOREGROUND="black"
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND="blue"
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND="gray"
 POWERLEVEL9K_MODE='nerdfont-complete'
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-#POWERLEVEL9K_SHORTEN_DELIMITER=".."
-#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DELIMITER=".."
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{white}"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%F{white} "
@@ -55,7 +57,7 @@ POWERLEVEL9K_BATTERY_LOW_BACKGROUND="240"
 POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="240"
 POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="240"
 POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="240"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uf017 %d-%m \uf073}"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
 export TERM="xterm-256color"
 
@@ -91,7 +93,7 @@ unset file
 source $ZSH/oh-my-zsh.sh
 
 # switch to java 8
-setjdk 8
+#setjdk 8
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -121,11 +123,8 @@ export PATH=~/oracle/instantclient_12_2:$PATH
 # initiate nice looking ls colors
 eval `gdircolors ~/.dircolors`
 
-
-#setopt extendedglob
-#if [[ -n "${ZSH_COMPDUMP}"(#qN.mh+24) ]]; then
-#  compinit -i -d "${ZSH_COMPDUMP}"
-#  compdump
-#else
-#  compinit -C
-#fi
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
