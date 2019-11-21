@@ -62,6 +62,15 @@ alias brew_reset="cd $(brew --repository) && git fetch && git reset --hard origi
 ## Kubectl cli shortcode
 alias kc='kubectl'
 
+## Kubectl get pods
+alias kp='kubectl get pods'
+
+## Kubectl logs
+alias kl='kubectl logs'
+
+## Kubectl describe
+alias kd='kubectl describe'
+
 ## Get a token to use the gce api
 alias kubetoken='gcloud config config-helper --format=json'
 
@@ -106,10 +115,10 @@ function setjdk() {
       removeFromPath $JAVA_HOME
     fi
 
-    if [ $@ = 9 ] || [ $@ = 10 ]; then
-      export JAVA_HOME="`/usr/libexec/java_home -v $@`"
-    else
+    if [ $@ = 8 ]; then
       export JAVA_HOME="`/usr/libexec/java_home -v 1.$@`"
+    else
+      export JAVA_HOME="`/usr/libexec/java_home -v $@`"
     fi
 #echo Setting JAVA_HOME to $JAVA_HOME
     export PATH="$JAVA_HOME/bin:$PATH"

@@ -119,6 +119,8 @@ export PATH=/usr/local/php5/bin:$PATH
 # sqlplus
 export PATH=~/oracle/instantclient_12_2:$PATH
 
+# ovftool
+export PATH=/Applications/VMware\ OVF\ Tool:$PATH
 
 # initiate nice looking ls colors
 eval `gdircolors ~/.dircolors`

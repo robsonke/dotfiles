@@ -37,6 +37,8 @@ then
     then
       sudo networksetup -switchtolocation $HOME_LOCATION
       osascript -e 'display notification "Home sweet home!" with title "Switched to location Home"'
+      # connect to maxxton vpn
+      osascript -e "tell application \"Tunnelblick\"" -e "connect \"OpenVPN MXT + DNS\"" -e "end tell"
       exit
     fi
   elif [[ "$WIFI_NAME" == $WORK_WIFI* ]]
@@ -46,6 +48,8 @@ then
       # we're at work, check if location is work too
       sudo networksetup -switchtolocation $WORK_LOCATION
       osascript -e 'display notification "Rise and shine, a new working day has started." with title "Switched to location Office"'
+      # disconnect to maxxton vpn
+      osascript -e "tell application \"Tunnelblick\"" -e "disconnect \"OpenVPN MXT + DNS\"" -e "end tell"
       exit
     fi
   elif [[ ${WIFI_NAME} == ${PUNE_WIFI}* ]]
