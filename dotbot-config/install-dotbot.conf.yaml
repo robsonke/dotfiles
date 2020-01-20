@@ -1,6 +1,7 @@
 - clean: ['~']
 
 - link:
+    ~/.vimrc: ../vim/vimrc
     ~/.hushlogin: ../macos/hushlogin
     ~/.zshrc: ../zsh/zshrc
     ~/.aliases: ../macos/aliases

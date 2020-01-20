@@ -35,7 +35,9 @@ sudo gem update —system
 sudo gem update
 
 # update vim plugins
-curl https://j.mp/spf13-vim3 -L -o - | sh
+cd ~/.vim_runtime
+git pull --rebase
+python update_plugins.py
 
 # and update my brew and cask install file with latest list
 log_info "Update brew and cask install files"

@@ -58,6 +58,8 @@ brew install gradle
 brew install grep
 brew install gringo
 brew install groovy
+brew install helm
+brew install helm@2
 brew install highlight
 brew install hr
 brew install html2text
@@ -76,7 +78,6 @@ brew install jq
 brew install kns
 brew install kubectx
 brew install kubernetes-cli
-brew install kubernetes-helm
 brew install ldns
 brew install lftp
 brew install libassuan
@@ -145,6 +146,7 @@ brew install php@7.1
 brew install pinentry
 brew install pkg-config
 brew install pth
+brew install putty
 brew install python
 brew install python@2
 brew install q
@@ -160,7 +162,6 @@ brew install sqlite
 brew install sshfs
 brew install sudolikeaboss
 brew install tcptraceroute
-brew install telepresence
 brew install telnet
 brew install terminal-notifier
 brew install terraform

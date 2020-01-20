@@ -188,7 +188,7 @@ function nodeversion() {
 # Disclaimer: this is gathered and adapted from several other people's aliases
 
 ## Short for executing docker exec and jump into the running container
-function dexec() { docker exec -it $1 bash }
+function dexec() { docker exec -it $1 sh }
 
 ## Get latest Docker container ID
 alias docl="docker ps -l -q"

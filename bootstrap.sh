@@ -39,8 +39,9 @@ mackup restore
 sh macos/macos
 
 # install Vim plus a bunch of other plugins / settings
-# uses https://github.com/spf13/spf13-vim
-curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+# uses https://github.com/amix/vimrc.git
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # KNOWN MISSING PARTS
 # fonts for oh my zsh agnoster theme

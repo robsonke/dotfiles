@@ -1,4 +1,7 @@
 brew cask install 1password
+brew cask install adoptopenjdk11-openj9
+brew cask install adoptopenjdk13-openj9
+brew cask install adoptopenjdk8-openj9
 brew cask install airfoil
 brew cask install alfred
 brew cask install android-sdk
@@ -21,6 +24,7 @@ brew cask install google-cloud-sdk
 brew cask install gpg-suite
 brew cask install grammarly
 brew cask install istat-menus
+brew cask install iterm2
 brew cask install iterm2-beta
 brew cask install java
 brew cask install jumpshare
@@ -37,7 +41,6 @@ brew cask install postman
 brew cask install qlcolorcode
 brew cask install robo-3t
 brew cask install sequel-pro
-brew cask install shimo
 brew cask install slack
 brew cask install soapui
 brew cask install soundcleod
