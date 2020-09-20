@@ -24,7 +24,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
-plugins=(docker osx brew gradle oc zsh-syntax-highlighting kubecontext)
+plugins=(docker osx brew gradle zsh-completions zsh-autosuggestions zsh-syntax-highlighting kubecontext)
 #plugins=()
 
 ##############################################################################################
@@ -115,6 +115,8 @@ fi;
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH=/usr/local/php5/bin:$PATH
+# let openssl win from the macos libressl one
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # sqlplus
 export PATH=~/oracle/instantclient_12_2:$PATH
@@ -130,3 +132,4 @@ for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
 compinit -C
+export PATH="/usr/local/opt/helm@2/bin:$PATH"

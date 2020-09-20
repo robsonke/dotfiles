@@ -71,6 +71,9 @@ alias kl='kubectl logs'
 ## Kubectl describe
 alias kd='kubectl describe'
 
+## Kubens
+alias kn='kubens'
+
 ## Get a token to use the gce api
 alias kubetoken='gcloud config config-helper --format=json'
 

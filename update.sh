@@ -22,7 +22,6 @@ brew_upgrade
 brew_cask_upgrade
 
 brew cleanup
-brew cask cleanup
 brew doctor
 
 # install new packages from the lists in brew.sh and brew-cask.sh
@@ -39,10 +38,10 @@ cd ~/.vim_runtime
 git pull --rebase
 python update_plugins.py
 
-# and update my brew and cask install file with latest list
+# and update my brew and cask install file with latest list per user (separating work and private)
 log_info "Update brew and cask install files"
-brew list | sed 's/^/brew install /' > brew/brew.sh
-brew cask list | sed 's/^/brew cask install /' > brew/brew-cask.sh
+brew list | sed 's/^/brew install /' > brew/brew-${USER}.sh
+brew list --cask | sed 's/^/brew cask install /' > brew/brew-cask-${USER}.sh
 mas list | sort > macos/appstore.lst
 
 # update the mackup references
