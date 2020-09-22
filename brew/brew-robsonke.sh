@@ -4,7 +4,6 @@ brew install angular-cli
 brew install ant
 brew install apr
 brew install apr-util
-brew install archey
 brew install aspcud
 brew install aspell
 brew install atlassian-plugin-sdk
@@ -18,9 +17,7 @@ brew install bdw-gc
 brew install boost
 brew install brotli
 brew install c-ares
-brew install camlp4
 brew install ccat
-brew install clasp
 brew install clingo
 brew install cloog
 brew install cmake
@@ -29,7 +26,6 @@ brew install coreutils
 brew install cscope
 brew install curl-openssl
 brew install diff-so-fancy
-brew install dirmngr
 brew install dnsmasq
 brew install docker
 brew install dos2unix
@@ -46,16 +42,13 @@ brew install git
 brew install git-lfs
 brew install glib
 brew install gmp
-brew install gmp@4
 brew install gnupg
 brew install gnupg2
 brew install gnutls
 brew install go
 brew install gofabric8
-brew install gpg-agent
 brew install gradle
 brew install grep
-brew install gringo
 brew install groovy
 brew install guile
 brew install helm
@@ -147,7 +140,6 @@ brew install pinentry
 brew install pkg-config
 brew install pth
 brew install putty
-brew install python@2
 brew install python@3.8
 brew install q
 brew install readline
