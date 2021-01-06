@@ -27,7 +27,7 @@ brew_upgrade() {
   printf '=%.0s' {1..82}
   printf '\n'
 
-  for item in $(brew list); do
+  for item in $(brew list --formula); do
     local BREW_NAME="$item"
     local BREW_INFO=$(brew info $item)
     local BREW_OUTDATED=$(brew outdated --verbose $item)
@@ -65,8 +65,8 @@ brew_cask_upgrade() {
   printf '=%.0s' {1..82}
   printf '\n'
 
-  for c in $(brew cask list); do
-    local CASK_INFO=$(brew cask info $c)
+  for c in $(brew list --cask); do
+    local CASK_INFO=$(brew info --cask $c)
     local CASK_NAME=$(echo "$c" | cut -d ":" -f1 | xargs)
     local NEW_VERSION=$(echo "$CASK_INFO" | grep -e "$CASK_NAME: .*" | cut -d ":" -f2 | sed 's/ *//' | cut -d " " -f1)
     local IS_CURRENT_VERSION_INSTALLED=$(echo "$CASK_INFO" | grep -q ".*/Caskroom/$CASK_NAME/$NEW_VERSION.*" 2>&1 && echo true )
