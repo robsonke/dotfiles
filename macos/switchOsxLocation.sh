@@ -8,7 +8,7 @@
 #######################################################
 
 # Constants defining the situation
-HOME_WIFI='SONKEBERKS'
+HOME_WIFI='EVAROBSTEFFI'
 WORK_WIFI='MXTHQ'
 PUNE_WIFI='MAXXTON'
 HOME_LOCATION='Home'

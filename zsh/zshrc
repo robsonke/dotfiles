@@ -24,12 +24,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
-plugins=(docker osx brew gradle zsh-completions zsh-autosuggestions zsh-syntax-highlighting kubecontext)
+plugins=(docker osx brew gradle zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 #plugins=()
 
 ##############################################################################################
 # User configuration
-DISABLE_UPDATE_PROMPT=true
+DISABLE_UPDATE_PROMPT=false
 DISABLE_UNTRACKED_FILES_DIRTY=true
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir kubecontext dir_writable vcs)
@@ -118,6 +118,14 @@ export PATH=/usr/local/php5/bin:$PATH
 # let openssl win from the macos libressl one
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
+# set grep options by overriding the oh my zsh ones
+export GREP_OPTIONS="--color=auto"
+# and unalias grep as the ohmyzsh one is broken
+unalias grep
+
+# kubectl / gcloud
+export CLOUDSDK_PYTHON=python2
+
 # sqlplus
 export PATH=~/oracle/instantclient_12_2:$PATH
 
@@ -126,6 +134,17 @@ export PATH=/Applications/VMware\ OVF\ Tool:$PATH
 
 # initiate nice looking ls colors
 eval `gdircolors ~/.dircolors`
+
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
 
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
