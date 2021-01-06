@@ -50,6 +50,8 @@ brew_upgrade() {
     CURRENT_VERSION=""
   done
 
+  brew doctor
+
   log_info "Brew upgrades finished."
 }
 
@@ -75,14 +77,13 @@ brew_cask_upgrade() {
 
     # Install if not up-to-date
     if [[ -z "$IS_CURRENT_VERSION_INSTALLED" ]]; then
-      brew cask install "$CASK_NAME" --force
+      brew install --cask "$CASK_NAME" --force
     fi
 
     CASK_INFO=""
     NEW_VERSION=""
     IS_CURRENT_VERSION_INSTALLED=""
   done
-
 
   log_info "Cask upgrades finished."
 }
