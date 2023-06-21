@@ -24,7 +24,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
-plugins=(docker osx brew gradle zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(docker macos brew gradle zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 #plugins=()
 
 ##############################################################################################
@@ -58,6 +58,8 @@ POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="240"
 POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="240"
 POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="240"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 export TERM="xterm-256color"
 
@@ -95,6 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # switch to java 8
 #setjdk 8
 
+# initiate docker env
+#eval $(docker-machine env)
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -124,10 +129,13 @@ export GREP_OPTIONS="--color=auto"
 unalias grep
 
 # kubectl / gcloud
-export CLOUDSDK_PYTHON=python2
+#export CLOUDSDK_PYTHON=python2
 
 # sqlplus
-export PATH=~/oracle/instantclient_12_2:$PATH
+export PATH=~/oracle/instantclient_19_8:$PATH
+
+# sqlcl
+export PATH=/usr/local/Caskroom/sqlcl/21.3.2.287.1503/sqlcl/bin:"$PATH"
 
 # ovftool
 export PATH=/Applications/VMware\ OVF\ Tool:$PATH
@@ -152,3 +160,4 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
+

@@ -13,6 +13,9 @@ alias psg='ps ax | grep'
 findport() { lsof -t -i :$1; }
 killport() { kill -9 "$(lsof -t -i :$1)"; }
 
+## Fix a git conflict easily with mine/yours 
+alias fix-conflict="sh /Users/robsonke/.dotfiles/macos/fix-conflict.sh"
+
 ## List all files colorized in long format
 alias ll="ls -ltrhF ${colorflag}"
 
@@ -29,7 +32,7 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias msrc="cd ~/maxxton/sources/mxt2/services"
 
 ## Use colorized cat (ccat) instead of normal cat
-alias cat=ccat
+#alias cat=ccat
 
 ## Make sure my aliases are accessible
 alias sudo='sudo '
@@ -68,8 +71,22 @@ alias kp='kubectl get pods'
 ## Kubectl logs
 alias kl='kubectl logs'
 
+## Parse mxts service logs human readable, use: klmxts podname
+function klmxts() {
+  kubectl logs $1 -f | grep -v "ACCESS" | jq -Rr 'fromjson | ([.timestamp,.level,.message,.exception]) | @tsv' | sed -e "s/\\\\n/\n        /g"
+}
+
+## Kubectl delete
+#alias kde='kubectl delete'
+
 ## Kubectl describe
 alias kd='kubectl describe'
+
+## Kubectl get
+alias kg='kubectl get'
+
+## Kubectl top
+alias kt='kubectl top'
 
 ## Kubens
 alias kn='kubens'
