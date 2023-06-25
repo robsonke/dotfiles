@@ -1,12 +1,9 @@
-#set -x
-
-# Trace performance of zsh
-zmodload zsh/zprof
-# Then do: env ZSH_PROF= zsh -ic zprof
-# This might help too:
-# sudo rm -rf /private/var/log/asl/*.asl
-# Also removing ~/.zcompdump* files might help
-
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -15,8 +12,6 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="agnoster"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -25,55 +20,25 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 # IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
 plugins=(docker macos brew gradle zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
-#plugins=()
 
 ##############################################################################################
 # User configuration
 DISABLE_UPDATE_PROMPT=false
 DISABLE_UNTRACKED_FILES_DIRTY=true
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir kubecontext dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time battery)
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-POWERLEVEL9K_OS_ICON_FOREGROUND="black"
-POWERLEVEL9K_KUBECONTEXT_BACKGROUND="blue"
-POWERLEVEL9K_KUBECONTEXT_FOREGROUND="gray"
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_DELIMITER=".."
-POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{white}"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%F{white} "
-
-POWERLEVEL9K_BATTERY_CHARGING='yellow'
-POWERLEVEL9K_BATTERY_CHARGED='green'
-POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
-POWERLEVEL9K_BATTERY_LOW_COLOR='red'
-POWERLEVEL9K_BATTERY_ICON='\uf1e6'
-POWERLEVEL9K_BATTERY_LOW_BACKGROUND="240"
-POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="240"
-POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="240"
-POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="240"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 export TERM="xterm-256color"
 
 # This disables the robsonke@macbook prefix in prompts
 DEFAULT_USER="robsonke"
 . `brew --prefix`/etc/profile.d/z.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# gcloud completions
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # zsh completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+#fpath=(/usr/local/share/zsh-completions $fpath)
 
 # load my aliases and functions
 for file in ~/.{aliases,exports,functions}; do
@@ -83,22 +48,9 @@ unset file
 
 #################################
 
-# give suggestions for missing utils
-#if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
-
-# and maybe load some overrides from the custom folder
-for file in ~/.dotfiles/custom/*; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file"
-done
 unset file
 
 source $ZSH/oh-my-zsh.sh
-
-# switch to java 8
-#setjdk 8
-
-# initiate docker env
-#eval $(docker-machine env)
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -113,51 +65,6 @@ if [ $? -eq 0 ]; then
   }
 fi;
 
-# Android sdk
-#export ANDROID_HOME=/usr/local/opt/android-sdk
-
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH=/usr/local/php5/bin:$PATH
 # let openssl win from the macos libressl one
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-
-# set grep options by overriding the oh my zsh ones
-export GREP_OPTIONS="--color=auto"
-# and unalias grep as the ohmyzsh one is broken
-unalias grep
-
-# kubectl / gcloud
-#export CLOUDSDK_PYTHON=python2
-
-# sqlplus
-export PATH=~/oracle/instantclient_19_8:$PATH
-
-# sqlcl
-export PATH=/usr/local/Caskroom/sqlcl/21.3.2.287.1503/sqlcl/bin:"$PATH"
-
-# ovftool
-export PATH=/Applications/VMware\ OVF\ Tool:$PATH
-
-# initiate nice looking ls colors
-eval `gdircolors ~/.dircolors`
-
-pasteinit() {
-  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-}
-
-pastefinish() {
-  zle -N self-insert $OLD_SELF_INSERT
-}
-zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
-
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
-export PATH="/usr/local/opt/helm@2/bin:$PATH"
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 

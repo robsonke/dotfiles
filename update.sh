@@ -28,11 +28,6 @@ brew doctor
 brew_install_missing
 brew_cask_install_missing
 
-# update Ruby & gems
-log_info "Update Gems"
-sudo gem update —system
-sudo gem update
-
 # update vim plugins
 cd ~/.vim_runtime
 git pull --rebase
@@ -41,8 +36,8 @@ python update_plugins.py
 # and update my brew and cask install file with latest list per user (separating work and private)
 log_info "Update brew and cask install files"
 brew list | sed 's/^/brew install /' > brew/brew-${USER}.sh
-brew list --cask | sed 's/^/brew cask install /' > brew/brew-cask-${USER}.sh
-mas list | sort > macos/appstore.lst
+brew list --cask | sed 's/^/brew install --cask /' > brew/brew-cask-${USER}.sh
+
 
 # update the mackup references
 #mackup backup

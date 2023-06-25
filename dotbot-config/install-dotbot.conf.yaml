@@ -2,19 +2,10 @@
 
 - link:
     ~/.vimrc: ../vim/vimrc
-    ~/.hushlogin: ../macos/hushlogin
     ~/.zshrc: ../zsh/zshrc
     ~/.aliases: ../macos/aliases
     ~/.functions: ../macos/functions
     ~/.oh-my-zsh: ../zsh/oh-my-zsh
-    ~/.mackup.cfg: ../macos/mackup.cfg
-    ~/.iterm2_shell_integration.zsh: ../zsh/iterm2_shell_integration.zsh
-    ~/.stCommitMsg: ../git/stCommitMsg
-    ~/.dircolors: ../macos/dircolors
-    ~/.inputrc: ../macos/inputrc
-    ~/.tmux.conf: ../macos/tmux.conf
-    ~/.exports: ../macos/exports
-    /usr/local/etc/dnsmasq.conf: ../macos/dnsmasq.conf
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
