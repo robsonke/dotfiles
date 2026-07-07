@@ -8,6 +8,7 @@ brew install apr-util
 brew install argon2
 brew install aribb24
 brew install aspell
+brew install atuin
 brew install autoconf
 brew install awscli
 brew install bash
@@ -254,6 +255,7 @@ brew install z
 brew install z3
 brew install zeromq
 brew install zimg
+brew install zoxide
 brew install zsh
 brew install zsh-completions
 brew install zsh-syntax-highlighting

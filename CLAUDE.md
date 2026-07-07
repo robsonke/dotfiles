@@ -62,6 +62,11 @@ oh-my-zsh, powerlevel10k, or any zsh framework in this setup — those were full
 framework-style config (theme variables, plugin arrays) expecting it to do anything; nothing sources
 `oh-my-zsh.sh` or similar.
 
+**NVM is lazy-loaded**: `zsh/zshrc` defines stub functions for `nvm`/`node`/`npm`/`npx`/`corepack`
+that source the real `nvm.sh` only on first call, then unset themselves. This is intentional — nvm's
+own `nvm_auto` does a version resolution/switch on every eager load, costing ~250ms+ per shell
+startup. Don't revert to eagerly sourcing `nvm.sh` at the top level.
+
 ## Working in this repo
 
 - This is single-maintainer config, not a shared codebase — prioritize matching the existing terse,
