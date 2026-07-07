@@ -1,32 +1,17 @@
 ### Aliases & Functions
 
-## Quick check on running tomcat processes
-alias pst='ps ax | grep -i tomcat'
-## Quick check on running java processes
-alias psj='ps ax | grep -i java'
-## Quick check on running node processes
-alias psn='ps ax | grep -i node'
-## Quick process grep alias
-alias psg='ps ax | grep'
-
 ## Find PID of running process on port
 findport() { lsof -t -i :$1; }
 killport() { kill -9 "$(lsof -t -i :$1)"; }
 
-## Fix a git conflict easily with mine/yours 
-alias fix-conflict="sh /Users/robsonke/.dotfiles/macos/fix-conflict.sh"
-
 ## List all files colorized in long format
-alias ll="ls -ltrhF ${colorflag}"
+alias ll="ls -ltrhF"
 
 ## List all files colorized in long format, including dot files
-alias la="ls -ltrhaF ${colorflag}"
-
-## Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+alias la="ls -ltrhaF"
 
 ## List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+alias lsd="ls -lF | grep --color=never '^d'"
 
 ## quick gotos
 alias msrc="cd ~/maxxton/sources/mxt2/services"
@@ -76,9 +61,6 @@ function klmxts() {
   kubectl logs $1 -f | grep -v "ACCESS" | jq -Rr 'fromjson | ([.timestamp,.level,.message,.exception]) | @tsv' | sed -e "s/\\\\n/\n        /g"
 }
 
-## Kubectl delete
-#alias kde='kubectl delete'
-
 ## Kubectl describe
 alias kd='kubectl describe'
 
@@ -88,6 +70,15 @@ alias kg='kubectl get'
 ## Kubectl top
 alias kt='kubectl top'
 
+## Kubectl rollout restart
+alias krr='kubectl rollout restart'
+
+## Kubectl rollout restart deployment
+alias krrd='kubectl rollout restart deployment'
+
+## Kubectl delete failed jobs
+alias kcdeljobs="kubectl delete job $(kubectl get jobs -o jsonpath='{range .items[?(@.status.failed>=1)]}{.metadata.name}{"\n"}{end}')"
+
 ## Kubens
 alias kn='kubens'
 
@@ -95,10 +86,11 @@ alias kn='kubens'
 alias kubetoken='gcloud config config-helper --format=json'
 
 ## Short for executing kubectl exec and jump into the running container
-function kcexec() { kc exec -it $1 sh }
+function kcexec() { kc exec -it $1 -- /bin/sh }
 
 # Source all extra aliases with sensitive info which we don't want in Git
-source $HOME/Dropbox/Maxxton/extra_aliases
+source $HOME/maxxton/docs/extra_aliases
+source $HOME/maxxton/docs/ssh_profiles
 
 
 ### Utility Functions
@@ -108,13 +100,15 @@ function aliases() {
   echo
   grep -A10000 "^###" ~/.aliases | awk -f <(echo "$VAR_ALIASES")
   echo
+  grep -A10000 "^###" ~/maxxton/docs/extra_aliases | awk -f <(echo "$VAR_ALIASES")
+  echo
 }
 
-## angular i18n - export xliffs
-alias xi18n="node_modules/.bin/ng-xi18n -p tsconfig-xi18n.json"
-
-## Update all software and push to github
-alias update="sh ~/.dotfiles/update.sh"
+function profiles() {
+  echo
+  grep -A10000 "^###" $HOME/maxxton/docs/ssh_profiles | awk -f <(echo "$VAR_ALIASES")
+  echo
+}
 
 ## Kill all processes matching this name
 function killit() {
@@ -251,11 +245,11 @@ sub(/^##[[:space:]]+/,"") {
 }
 
 $1 == "alias" && sub(/=.*/,"",$2) {
-  printf "%-15s - %s\\n", $2, desc
+  printf "%-20s - %s\\n", $2, desc
 }
 
 $1 == "function" && sub(/\(\).*/,"",$2) {
-  printf "%-15s - %s\\n", $2, desc
+  printf "%-20s - %s\\n", $2, desc
 }
 
 EOF

@@ -1,61 +1,23 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# IMPORTANT: The zsh-syntax-highlighting MUST! be the last one
-plugins=(docker macos brew gradle zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
-
-##############################################################################################
-# User configuration
-DISABLE_UPDATE_PROMPT=false
-DISABLE_UNTRACKED_FILES_DIRTY=true
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
-
 export TERM="xterm-256color"
 
-# This disables the robsonke@macbook prefix in prompts
-DEFAULT_USER="robsonke"
-. `brew --prefix`/etc/profile.d/z.sh
+# Colorize `ls` output (BSD ls on macOS needs this; GNU-style LS_COLORS is ignored)
+export CLICOLOR=1
 
-# zsh completions
-#fpath=(/usr/local/share/zsh-completions $fpath)
+# https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# This disables the robsonke@macbook prefix in prompts
+#DEFAULT_USER="robsonke"
+#. `brew --prefix`/etc/profile.d/z.sh
 
 # load my aliases and functions
-for file in ~/.{aliases,exports,functions}; do
+for file in ~/.{aliases,functions}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
-#################################
-
-unset file
-
-source $ZSH/oh-my-zsh.sh
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
-eval $(thefuck --alias)
 
 # Use Git’s colored diff when available
 hash git &>/dev/null;
@@ -67,4 +29,41 @@ fi;
 
 # let openssl win from the macos libressl one
 #export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
+# Enable starship prompt
+eval "$(starship init zsh)"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+#if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Machine-local secrets and overrides (never committed, see .gitignore)
+[ -f ~/.dotfiles/overrides/local.zsh ] && source ~/.dotfiles/overrides/local.zsh
+
+# Maximum lines kept in memory
+export HISTSIZE=100000
+# Maximum lines saved to $HISTFILE
+export SAVEHIST=100000
+export HISTFILE="$HOME/.zsh_history"
+setopt EXTENDED_HISTORY
+
+# Created by `pipx` on 2026-01-17 19:47:02
+export PATH="$PATH:/Users/robsonke/.local/bin"
+
+# Added by Antigravity
+export PATH="/Users/robsonke/.antigravity/antigravity/bin:$PATH"
+
+# Auto add the latest sqlcl, needed for sqlcl mcp server
+export PATH="/opt/homebrew/Caskroom/sqlcl/$(ls /opt/homebrew/Caskroom/sqlcl | tail -1)/sqlcl/bin:$PATH"
+
+
+# Added by Antigravity IDE
+export PATH="/Users/robsonke/.antigravity-ide/antigravity-ide/bin:$PATH"

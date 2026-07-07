@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 ####################################################################################
 #  Does a mass upgrade of your Homebrew apps and allows you to interactively       #
 #  select which Cask apps to upgrade.                                              #
@@ -56,6 +57,33 @@ brew_upgrade() {
 }
 
 #
+# This upgrades only outdated brew packages (faster version)
+#
+brew_upgrade_fast() {
+  log_info "Fast updating outdated Brew apps..."
+
+  local OUTDATED_PACKAGES=$(brew outdated --formula)
+
+  if [[ -z "$OUTDATED_PACKAGES" ]]; then
+    echo "No outdated packages found."
+    return 0
+  fi
+
+  echo "$OUTDATED_PACKAGES" | while read -r line; do
+    if [[ -n "$line" ]]; then
+      local PACKAGE_NAME=$(echo "$line" | awk '{print $1}')
+      local CURRENT_VERSION=$(echo "$line" | awk '{print $2}')
+      local NEW_VERSION=$(echo "$line" | awk '{print $4}')
+
+      printf "%-40s | %-20s | %-20s\n" "$PACKAGE_NAME" "$CURRENT_VERSION" "$NEW_VERSION"
+      brew upgrade "$PACKAGE_NAME" < /dev/null
+    fi
+  done
+
+  log_info "Fast Brew upgrades finished."
+}
+
+#
 # This upgrades brew cask packages
 #
 brew_cask_upgrade() {
@@ -86,6 +114,40 @@ brew_cask_upgrade() {
   done
 
   log_info "Cask upgrades finished."
+}
+
+#
+# This upgrades only outdated brew cask packages (faster version)
+#
+brew_cask_upgrade_fast() {
+  log_info "Fast updating outdated Cask apps..."
+
+  local UPDATED_COUNT=0
+
+  for c in $(brew list --cask); do
+    local CASK_INFO=$(brew info --cask $c)
+    local CASK_NAME=$(echo "$c" | cut -d ":" -f1 | xargs)
+    local NEW_VERSION=$(echo "$CASK_INFO" | grep -e "$CASK_NAME: .*" | cut -d ":" -f2 | sed 's/ *//' | cut -d " " -f1)
+    local IS_CURRENT_VERSION_INSTALLED=$(echo "$CASK_INFO" | grep -q ".*/Caskroom/$CASK_NAME/$NEW_VERSION.*" 2>&1 && echo true )
+
+    # Only process if not up-to-date
+    if [[ -z "$IS_CURRENT_VERSION_INSTALLED" ]]; then
+      local CURRENT_VERSION=$(find "/usr/local/Caskroom/$CASK_NAME" -maxdepth 1 -type d -name "*" | tail -1 | xargs basename 2>/dev/null || echo "unknown")
+      printf "%-40s | %-20s | %-20s\n" "$CASK_NAME" "$CURRENT_VERSION" "$NEW_VERSION"
+      brew install --cask "$CASK_NAME" --force
+      ((UPDATED_COUNT++))
+    fi
+
+    CASK_INFO=""
+    NEW_VERSION=""
+    IS_CURRENT_VERSION_INSTALLED=""
+  done
+
+  if [[ $UPDATED_COUNT -eq 0 ]]; then
+    echo "No outdated casks found."
+  fi
+
+  log_info "Fast Cask upgrades finished. Updated $UPDATED_COUNT casks."
 }
 
 #

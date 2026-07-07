@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$DOTFILES_DIR"
+
+usage() {
+  cat <<EOF
+Usage: ./dotfiles <command>
+
+Commands:
+  install   One-time setup on a new machine (Homebrew, packages, zsh, symlinks)
+  update    Pull latest, re-link, upgrade packages, refresh package lists, push
+  link      (Re)create the ~/.zshrc, ~/.aliases, ~/.functions symlinks
+EOF
+}
+
+link_dotfiles() {
+  ln -sf "${DOTFILES_DIR}/zsh/zshrc" ~/.zshrc
+  ln -sf "${DOTFILES_DIR}/macos/aliases" ~/.aliases
+  ln -sf "${DOTFILES_DIR}/macos/functions" ~/.functions
+}
+
+cmd_install() {
+  # install homebrew
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  # install all required brew packages
+  brew update
+  brew tap homebrew/cask-versions
+  sh brew/brew-"${USER}".sh
+  sh brew/brew-cask-"${USER}".sh
+  brew cleanup
+
+  # set zsh as default shell
+  chsh -s "$(which zsh)"
+
+  link_dotfiles
+}
+
+cmd_update() {
+  source macos/functions
+
+  # update system
+  log_info "Get latest source files from Github"
+  git pull
+
+  link_dotfiles
+
+  # update Homebrew (Cask) & packages
+  log_info "Brew upgrades and installations"
+  brew_cleanup_all
+  brew_upgrade
+  brew_cask_upgrade
+
+  brew cleanup
+  brew doctor
+
+  # install new packages from the lists in brew-*.sh and brew-cask-*.sh
+  brew_install_missing
+  brew_cask_install_missing
+
+  # and update my brew and cask install file with latest list per user (separating work and private)
+  log_info "Update brew and cask install files"
+  brew list | sed 's/^/brew install /' >brew/brew-"${USER}".sh
+  brew list --cask | sed 's/^/brew install --cask /' >brew/brew-cask-"${USER}".sh
+
+  # add, commit and push everything
+  log_info "Push everything back to Github"
+  git ca
+  git push
+}
+
+case "${1:-}" in
+  install) cmd_install ;;
+  update) cmd_update ;;
+  link) link_dotfiles ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
