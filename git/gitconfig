@@ -1,0 +1,71 @@
+[user]
+	name = Rob Sonke
+	email = r.sonke@maxxton.com
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /Users/robsonke/.gitignore_global
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[alias]
+  co = checkout
+
+  # View abbreviated SHA, description, and history graph of the latest 20 commits
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+  # View the current working tree status using the short format
+  s = status -s
+
+  # Show the diff between the latest commit and the current state
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+  # Commit all changes
+  ca = !git add -A && git commit -av
+
+  # Switch to a branch, creating it if necessary
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+
+  # Undo the last commit and pushes
+  undo = reset HEAD~1 --mixed
+
+  # Show all git aliases
+  alias = config --get-regexp alias
+
+  repository-name = !basename `git rev-parse --show-toplevel`
+
+  branch-name = !git rev-parse --abbrev-ref HEAD
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	templateDir = /Users/robsonke/.claude/plugins/marketplaces/maxxton-marketplace/plugins/developer/git-template
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential

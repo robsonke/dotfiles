@@ -19,6 +19,9 @@ link_dotfiles() {
   ln -sf "${DOTFILES_DIR}/zsh/zshrc" ~/.zshrc
   ln -sf "${DOTFILES_DIR}/macos/aliases" ~/.aliases
   ln -sf "${DOTFILES_DIR}/macos/functions" ~/.functions
+  ln -sf "${DOTFILES_DIR}/git/gitconfig" ~/.gitconfig
+  mkdir -p ~/.config
+  ln -sf "${DOTFILES_DIR}/starship/starship.toml" ~/.config/starship.toml
 }
 
 cmd_install() {

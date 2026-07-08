@@ -17,7 +17,7 @@ There is no build or test suite. The only commands that matter, all via the sing
                       # sets zsh as default shell, symlinks dotfiles into $HOME
 ./dotfiles update     # pulls latest, re-symlinks, upgrades/installs brew & cask packages,
                       # regenerates brew/brew-${USER}.sh and brew/brew-cask-${USER}.sh, commits & pushes
-./dotfiles link       # just the 3 symlinks, without touching Homebrew or git
+./dotfiles link       # just the symlinks, without touching Homebrew or git
 ```
 
 To sanity-check a shell script edit without running the destructive parts, `bash -n <file>` (syntax
@@ -25,14 +25,16 @@ check) or reading through manually is the practical option — there's no CI her
 
 ## Architecture
 
-**Symlink model**: `./dotfiles link` (called by both `install` and `update`) creates exactly 3
-symlinks from the repo into `$HOME`:
+**Symlink model**: `./dotfiles link` (called by both `install` and `update`) creates these symlinks
+from the repo into `$HOME`:
 
-| Home file      | Repo source           |
-|----------------|------------------------|
-| `~/.zshrc`     | `zsh/zshrc`            |
-| `~/.aliases`   | `macos/aliases`        |
-| `~/.functions` | `macos/functions`      |
+| Home file                  | Repo source               |
+|-----------------------------|----------------------------|
+| `~/.zshrc`                  | `zsh/zshrc`                |
+| `~/.aliases`                | `macos/aliases`            |
+| `~/.functions`              | `macos/functions`          |
+| `~/.gitconfig`              | `git/gitconfig`            |
+| `~/.config/starship.toml`   | `starship/starship.toml`   |
 
 `zsh/zshrc` in turn sources `~/.aliases` and `~/.functions` at shell startup (a loop over
 `~/.{aliases,functions}`, guarded so a missing file is skipped silently). If you add a new file that
@@ -57,10 +59,15 @@ tracked file, since this repo is pushed to a public GitHub remote (`./dotfiles u
 functions, sourced into the interactive shell via the `~/.functions` symlink, and also `source`d directly
 inside `dotfiles`' `cmd_update`.
 
-**Prompt**: handled entirely by `starship` (`eval "$(starship init zsh)"` in `zsh/zshrc`). There is no
-oh-my-zsh, powerlevel10k, or any zsh framework in this setup — those were fully removed. Don't reintroduce
-framework-style config (theme variables, plugin arrays) expecting it to do anything; nothing sources
-`oh-my-zsh.sh` or similar.
+**Prompt**: handled entirely by `starship` (`eval "$(starship init zsh)"` in `zsh/zshrc`, config in
+`starship/starship.toml`). There is no oh-my-zsh, powerlevel10k, or any zsh framework in this setup —
+those were fully removed. Don't reintroduce framework-style config (theme variables, plugin arrays)
+expecting it to do anything; nothing sources `oh-my-zsh.sh` or similar.
+
+**`git/gitconfig` is the global git config**, symlinked to `~/.gitconfig`. Note this repo (`~/.dotfiles`
+itself) has its own *local* git identity override (`git config user.email` scoped to this repo only,
+predates this file) that intentionally differs from the global config — that's expected, local config
+always wins, don't "fix" it to match the global file.
 
 **NVM is lazy-loaded**: `zsh/zshrc` defines stub functions for `nvm`/`node`/`npm`/`npx`/`corepack`
 that source the real `nvm.sh` only on first call, then unset themselves. This is intentional — nvm's

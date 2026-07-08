@@ -6,6 +6,7 @@ for git, Docker, Kubernetes, and general command-line use.
 ## what's here
 
 * **zsh** — `zsh/zshrc`, prompt via [starship](https://starship.rs)
+* **git** — `git/gitconfig`, symlinked to `~/.gitconfig`
 * **Homebrew** — per-machine package lists in `brew/`, kept in sync by `./dotfiles update`
 * **aliases & functions** — `macos/aliases` and `macos/functions`, covering `kubectl`/`docker`
   shortcuts, Homebrew maintenance helpers, and misc utilities
@@ -19,8 +20,8 @@ cd ~/.dotfiles
 ```
 
 This installs Homebrew and the packages listed in `brew/`, installs and enables zsh, and symlinks
-`~/.zshrc`, `~/.aliases`, and `~/.functions` into this repo. Everything is configured and tweaked
-from `~/.dotfiles`.
+`~/.zshrc`, `~/.aliases`, `~/.functions`, `~/.gitconfig`, and `~/.config/starship.toml` into this
+repo. Everything is configured and tweaked from `~/.dotfiles`.
 
 ## update
 
@@ -32,18 +33,20 @@ cd ~/.dotfiles
 Pulls the latest changes, re-symlinks the dotfiles, upgrades/installs Homebrew packages, regenerates
 the `brew/brew-*.sh` package lists from what's actually installed, and pushes any changes back.
 
-`./dotfiles link` re-creates just the 3 symlinks, without touching Homebrew or git.
+`./dotfiles link` re-creates just the symlinks, without touching Homebrew or git.
 
 ## layout
 
-| Path                | Purpose                                                          |
-|----------------------|-------------------------------------------------------------------|
-| `dotfiles`           | Single entry point: `install`, `update`, `link`                 |
-| `zsh/zshrc`          | Symlinked to `~/.zshrc`                                          |
-| `macos/aliases`      | Symlinked to `~/.aliases`, sourced by `zshrc`                    |
-| `macos/functions`    | Symlinked to `~/.functions`, sourced by `zshrc` and `./dotfiles update` |
-| `brew/brew-*.sh`     | Per-user, auto-generated Homebrew/Cask install lists             |
-| `overrides/`         | Machine-local secrets & overrides, git-ignored (see below)       |
+| Path                     | Purpose                                                          |
+|--------------------------|-------------------------------------------------------------------|
+| `dotfiles`               | Single entry point: `install`, `update`, `link`                 |
+| `zsh/zshrc`              | Symlinked to `~/.zshrc`                                          |
+| `macos/aliases`          | Symlinked to `~/.aliases`, sourced by `zshrc`                    |
+| `macos/functions`        | Symlinked to `~/.functions`, sourced by `zshrc` and `./dotfiles update` |
+| `git/gitconfig`          | Symlinked to `~/.gitconfig`                                      |
+| `starship/starship.toml` | Symlinked to `~/.config/starship.toml`                           |
+| `brew/brew-*.sh`         | Per-user, auto-generated Homebrew/Cask install lists             |
+| `overrides/`             | Machine-local secrets & overrides, git-ignored (see below)       |
 
 ## secrets & machine-local overrides
 
