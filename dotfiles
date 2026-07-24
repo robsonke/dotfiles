@@ -9,8 +9,8 @@ usage() {
 Usage: ./dotfiles <command>
 
 Commands:
-  install   One-time setup on a new machine (Homebrew, packages, zsh, symlinks)
-  update    Pull latest, re-link, upgrade packages, refresh package lists, push
+  install   One-time setup on a new machine (Homebrew, packages, uv tools, zsh, symlinks)
+  update    Pull latest, re-link, upgrade packages, refresh package/uv-tool lists, push
   link      (Re)create the ~/.zshrc, ~/.aliases, ~/.functions symlinks
 EOF
 }
@@ -34,6 +34,11 @@ cmd_install() {
   sh brew/brew-"${USER}".sh
   sh brew/brew-cask-"${USER}".sh
   brew cleanup
+
+  # install global Python CLI tools captured by `update` (names only, latest versions)
+  if command -v uv >/dev/null 2>&1 && [ -f python/uv-tools-"${USER}".sh ]; then
+    sh python/uv-tools-"${USER}".sh
+  fi
 
   # set zsh as default shell
   chsh -s "$(which zsh)"
@@ -67,6 +72,13 @@ cmd_update() {
   log_info "Update brew and cask install files"
   brew list | sed 's/^/brew install /' >brew/brew-"${USER}".sh
   brew list --cask | sed 's/^/brew install --cask /' >brew/brew-cask-"${USER}".sh
+
+  # and snapshot global Python CLI tools installed via `uv tool` (names only, per user)
+  if command -v uv >/dev/null 2>&1; then
+    log_info "Update uv tool install file"
+    mkdir -p python
+    uv tool list | awk '$2 ~ /^v[0-9]/ {print "uv tool install "$1}' >python/uv-tools-"${USER}".sh
+  fi
 
   # add, commit and push everything
   log_info "Push everything back to Github"

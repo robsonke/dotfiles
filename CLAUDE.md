@@ -47,6 +47,14 @@ generated (not hand-written) by `./dotfiles update` via `brew list | sed ... > b
 current `$USER`), so these filenames are expected to vary per machine/user rather than being fixed
 names like `brew.sh`.
 
+**Per-user uv tool list**: `python/uv-tools-<username>.sh` follows the identical generated-not-hand-written
+model as the brew lists — `./dotfiles update` runs `uv tool list | awk ... > python/uv-tools-${USER}.sh`
+to snapshot the globally-installed Python CLI tools (those installed via `uv tool install`), one
+`uv tool install <name>` per line, names only (no pinned versions, matching the brew lists). `./dotfiles
+install` replays it with `sh python/uv-tools-${USER}.sh` (guarded on `uv` being present and the file
+existing). This only covers global CLI tools, not project/venv dependencies — those belong in each
+project's own `requirements.txt`/`pyproject.toml`, never here.
+
 **Machine-local secrets/overrides**: `overrides/` is git-ignored (see `.gitignore`). `zsh/zshrc` sources
 `~/.dotfiles/overrides/local.zsh` if it exists — this is where API tokens or other machine-specific,
 non-shareable config belongs. Never put secrets directly in `zsh/zshrc`, `macos/aliases`, or any other

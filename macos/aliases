@@ -89,8 +89,8 @@ alias kubetoken='gcloud config config-helper --format=json'
 function kcexec() { kc exec -it $1 -- /bin/sh }
 
 # Source all extra aliases with sensitive info which we don't want in Git
-source $HOME/maxxton/docs/extra_aliases
-source $HOME/maxxton/docs/ssh_profiles
+source $HOME/Documents/docs/extra_aliases
+source $HOME/Documents/docs/ssh_profiles
 
 
 ### Utility Functions
