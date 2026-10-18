@@ -62,7 +62,7 @@ cmd_update() {
   brew_cask_upgrade
 
   brew cleanup
-  brew doctor
+  brew doctor || true
 
   # install new packages from the lists in brew-*.sh and brew-cask-*.sh
   brew_install_missing

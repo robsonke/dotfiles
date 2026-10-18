@@ -12,7 +12,7 @@
 
 brew_cleanup_all() {
   echo "Cleaning up..."
-  brew update && brew cleanup && brew cask cleanup
+  brew update && brew cleanup
   echo "Clean finished.\n\n"
 }
 
@@ -51,7 +51,7 @@ brew_upgrade() {
     CURRENT_VERSION=""
   done
 
-  brew doctor
+  brew doctor || true
 
   log_info "Brew upgrades finished."
 }
@@ -151,7 +151,7 @@ brew_cask_upgrade_fast() {
 }
 
 #
-# This installs all missing brew packages, based on the ones in brew.sh
+# This installs all missing brew packages, based on the ones in brew-$USER.sh
 #
 function brew_install_missing() {
   log_info "Missing brew apps started."
@@ -160,23 +160,22 @@ function brew_install_missing() {
   green=`tput setaf 2`
   reset=`tput sgr0`
 
-  while read item; do
-    item=${item/brew install /}
+  while read -r item; do
+    item=${item#brew install }
 
-    installed="$(brew info $item | grep 'Not installed')"
-    if [[ $installed = *[!\ ]* ]]; then
-      echo "${item} is ${red}not installed${reset}."
-      brew install "$item" --force
-    else
+    if brew list --formula "$item" &>/dev/null; then
       echo "${item} is ${green}installed${reset}."
+    else
+      echo "${item} is ${red}not installed${reset}."
+      brew install "$item"
     fi
-  done <brew/brew.sh
+  done <brew/brew-"${USER}".sh
 
   log_info "Missing brew apps finished."
 }
 
 #
-# This installs all missing brew cask packages, based on the ones in brew-cask.sh
+# This installs all missing brew cask packages, based on the ones in brew-cask-$USER.sh
 #
 function brew_cask_install_missing() {
   log_info "Missing brew cask apps started."
@@ -185,17 +184,16 @@ function brew_cask_install_missing() {
   green=`tput setaf 2`
   reset=`tput sgr0`
 
-  while read cask; do
-    cask=${cask/brew cask install /}
+  while read -r cask; do
+    cask=${cask#brew install --cask }
 
-    installed="$(brew cask info $cask | grep 'Not installed')"
-    if [[ $installed = *[!\ ]* ]]; then
-      echo "${cask} is ${red}not installed${reset}."
-      brew cask install "$cask" --force
-    else
+    if brew list --cask "$cask" &>/dev/null; then
       echo "${cask} is ${green}already installed${reset}."
+    else
+      echo "${cask} is ${red}not installed${reset}."
+      brew install --cask "$cask"
     fi
-  done <brew/brew-cask.sh
+  done <brew/brew-cask-"${USER}".sh
 
   log_info "Missing brew cask apps finished."
 }
