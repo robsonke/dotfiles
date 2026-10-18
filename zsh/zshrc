@@ -1,14 +1,44 @@
 export TERM="xterm-256color"
 
-# Colorize `ls` output (BSD ls on macOS needs this; GNU-style LS_COLORS is ignored)
+# Colorize ls output (BSD ls on macOS needs this)
 export CLICOLOR=1
 
-# https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
+# GKE auth settings
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
-# This disables the robsonke@macbook prefix in prompts
-#DEFAULT_USER="robsonke"
-#. `brew --prefix`/etc/profile.d/z.sh
+# Language environment
+export LANG=en_US.UTF-8
+
+# History Configuration
+export HISTSIZE=100000
+export SAVEHIST=100000
+export HISTFILE="$HOME/.zsh_history"
+setopt EXTENDED_HISTORY
+
+# ==========================================
+# 1. INITIALIZE COMPLETIONS (CRITICAL FOR ZOXIDE)
+# ==========================================
+autoload -Uz compinit
+if [[ -n "${ZDOTDIR:-$HOME}/.zcompdump(#qN.m+1)" ]]; then
+  compinit
+else
+  compinit -C
+fi
+
+# ==========================================
+# 2. PATHS & ENVIRONMENT ALTERATIONS
+# ==========================================
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+export PATH="$PATH:/Users/robsonke/.local/bin"
+
+# Auto add the latest sqlcl, needed for sqlcl mcp server
+if [ -d /opt/homebrew/Caskroom/sqlcl ]; then
+  export PATH="/opt/homebrew/Caskroom/sqlcl/$(ls /opt/homebrew/Caskroom/sqlcl | tail -1)/sqlcl/bin:$PATH"
+fi
+
+# ==========================================
+# 3. ALIASES, FUNCTIONS & TOOLS
+# ==========================================
 
 # load my aliases and functions
 for file in ~/.{aliases,functions}; do
@@ -16,33 +46,26 @@ for file in ~/.{aliases,functions}; do
 done
 unset file
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Use Git’s colored diff when available
+# Fixed: Avoids infinite recursion loop by using 'command git'
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
   function diff() {
-    git diff --no-index --color-words "$@";
+    command git diff --no-index --color-words "$@";
   }
 fi;
-
-# let openssl win from the macos libressl one
-#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 # Enable starship prompt
 eval "$(starship init zsh)"
 
-# zoxide: replaces `cd` with frecency-based smart jumping, falls back to normal
-# cd for exact paths
-eval "$(zoxide init zsh --cmd cd)"
+# zoxide: Configured AFTER compinit so completions attach perfectly
+eval "$(zoxide init zsh --cmd cd --hook pwd)"
 
 # atuin: searchable shell history (ctrl+r), synced across sessions
 eval "$(atuin init zsh)"
 
-# NVM (lazy-loaded: nvm's own `nvm_auto` resolves/switches the Node version on
-# every load, which costs ~250ms+ per shell startup - deferred until first use)
+# ==========================================
+# 4. LAZY LOADING & HEAVY SCRIPTING
+# ==========================================
 export NVM_DIR="$HOME/.nvm"
 
 _nvm_lazy_load() {
@@ -56,31 +79,8 @@ for _nvm_cmd in nvm node npm npx corepack; do
 done
 unset _nvm_cmd
 
-# The next line updates PATH for the Google Cloud SDK.
-#if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+# load all keychain passphrases
+ssh-add --apple-load-keychain -q
 
-# The next line enables shell command completion for gcloud.
-#if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Machine-local secrets and overrides (never committed, see .gitignore)
+# Machine-local secrets and overrides (Keep at bottom)
 [ -f ~/.dotfiles/overrides/local.zsh ] && source ~/.dotfiles/overrides/local.zsh
-
-# Maximum lines kept in memory
-export HISTSIZE=100000
-# Maximum lines saved to $HISTFILE
-export SAVEHIST=100000
-export HISTFILE="$HOME/.zsh_history"
-setopt EXTENDED_HISTORY
-
-# Created by `pipx` on 2026-01-17 19:47:02
-export PATH="$PATH:/Users/robsonke/.local/bin"
-
-# Added by Antigravity
-export PATH="/Users/robsonke/.antigravity/antigravity/bin:$PATH"
-
-# Auto add the latest sqlcl, needed for sqlcl mcp server
-export PATH="/opt/homebrew/Caskroom/sqlcl/$(ls /opt/homebrew/Caskroom/sqlcl | tail -1)/sqlcl/bin:$PATH"
-
-
-# Added by Antigravity IDE
-export PATH="/Users/robsonke/.antigravity-ide/antigravity-ide/bin:$PATH"

@@ -1,5 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+scan_timeout = 10
+command_timeout = 200
+
 # Inserts a blank line between shell prompts
 add_newline = true
 
